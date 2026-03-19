@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kurzhun — Story</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body class="page-enter story-page">
+
+  <!-- NAV -->
+  <nav aria-label="Main navigation">
+    <a href="index.html" class="nav-logo">Kurzhun</a>
+    <ul class="nav-links">
+      <li><a href="index.html#stories" data-i18n="nav.stories">Stories</a></li>
+      <li><a href="index.html#gallery" data-i18n="nav.gallery">Gallery</a></li>
+      <li><a href="index.html#memory" data-i18n="nav.memory">Memory</a></li>
+      <li><a href="index.html#about" data-i18n="nav.about">About</a></li>
+    </ul>
+    <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+      <span class="lang-opt" data-lang="en">EN</span>
+      <span class="lang-sep">/</span>
+      <span class="lang-opt" data-lang="ky">KY</span>
+    </button>
+  </nav>
+
+  <!-- BACK LINK -->
+  <div class="story-back-wrap">
+    <a href="index.html" class="story-back-link" id="backLink" data-i18n="story.back">← Back</a>
+  </div>
+
+  <!-- HERO IMAGE -->
+  <div class="story-hero-img">
+    <img id="storyHeroImg" src="" alt="" />
+    <div class="story-hero-overlay" aria-hidden="true"></div>
+  </div>
+
+  <!-- STORY CONTENT -->
+  <article class="story-article container">
+    <header class="story-header">
+      <p class="hero-eyebrow" id="storyEyebrow"></p>
+      <h1 id="storyTitle" class="story-title-h1"></h1>
+    </header>
+    <div class="story-body-text" id="storyBody"></div>
+
+    <!-- Ornament divider -->
+    <div class="ornament" aria-hidden="true" style="margin: 4rem 0 3rem;">
+      <svg width="48" height="24" viewBox="0 0 48 24" fill="none">
+        <rect x="0" y="11" width="48" height="2" fill="#C3AD90"/>
+        <rect x="20" y="4" width="8" height="16" fill="#C3AD90" opacity="0.4"/>
+        <rect x="22" y="0" width="4" height="24" fill="#7B3328" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <!-- Next story link -->
+    <div class="story-next-wrap">
+      <a href="#" class="story-next-link" id="nextStoryLink">
+        <span class="story-next-label" id="nextLabel" data-i18n="story.next">Next story</span>
+        <span class="story-next-title" id="nextTitle"></span>
+        <span class="story-next-arrow">→</span>
+      </a>
+    </div>
+  </article>
+
+  <footer>
+    <span data-i18n="footer.left">Kurzhun — A project on tradition and memory</span>
+    <span>© 2026</span>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script>
+    // Story images map
+    const STORY_IMAGES = {
+      1: 'story-1.jpg',
+      2: 'story-2.jpg',
+      3: 'story-3.jpg',
+      4: 'story-4.jpg',
+      5: 'story-5.jpg',
+    };
+
+    function loadStory() {
+      const params = new URLSearchParams(window.location.search);
+      const id = parseInt(params.get('id') || '1', 10);
+      const lang = window.getCurrentLang();
+
+      // Image
+      const img = document.getElementById('storyHeroImg');
+      img.src = STORY_IMAGES[id] || STORY_IMAGES[1];
+      img.alt = TRANSLATIONS[lang][`story.${id}.title`] || '';
+
+      // Text
+      document.getElementById('storyEyebrow').textContent = TRANSLATIONS[lang][`story.${id}.eyebrow`] || '';
+      document.getElementById('storyTitle').textContent   = TRANSLATIONS[lang][`story.${id}.title`]   || '';
+
+      // Body — preserve newlines as paragraphs
+      const bodyEl = document.getElementById('storyBody');
+      const bodyText = TRANSLATIONS[lang][`story.${id}.body`] || '';
+      bodyEl.innerHTML = bodyText
+        .split('\n\n')
+        .map(p => p.trim())
+        .filter(Boolean)
+        .map(p => `<p>${p}</p>`)
+        .join('');
+
+      // Next story link
+      const nextId = id < 5 ? id + 1 : 1;
+      const nextLink = document.getElementById('nextStoryLink');
+      nextLink.href = `story.html?id=${nextId}`;
+      document.getElementById('nextTitle').textContent = TRANSLATIONS[lang][`story.${nextId}.title`] || '';
+
+      // Page title
+      document.title = `Kurzhun — ${TRANSLATIONS[lang][`story.${id}.title`]}`;
+
+      // Attach transition on next link click
+      nextLink.addEventListener('click', e => {
+        e.preventDefault();
+        navigateTo(nextLink.href);
+      });
+    }
+
+    function navigateTo(url) {
+      document.body.classList.add('page-exit');
+      setTimeout(() => { window.location.href = url; }, 420);
+    }
+
+    // Back link with transition
+    document.getElementById('backLink').addEventListener('click', e => {
+      e.preventDefault();
+      navigateTo('index.html#stories');
+    });
+
+    // Reload story content when language changes
+    const _origApply = window.applyLang;
+    window.applyLang = function(lang) {
+      _origApply(lang);
+      loadStory();
+    };
+
+    document.addEventListener('DOMContentLoaded', loadStory);
+  </script>
+</body>
+</html>

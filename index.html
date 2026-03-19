@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="meta.title">Kurzhun — Archive of Stories</title>
+  <meta name="description" data-i18n="meta.desc"
+    content="Kurzhun — a traditional bag as a metaphor for storing and passing on stories, knowledge and memory." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+
+<body class="page-enter">
+
+  <!-- ==================== NAV ==================== -->
+  <nav aria-label="Main navigation">
+    <a href="#hero" class="nav-logo">Kurzhun</a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ==================== DRAWER MENU ==================== -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <div class="drawer" id="drawerMenu" aria-hidden="true">
+    <nav class="drawer-nav" aria-label="Drawer navigation">
+      <a href="#stories" class="drawer-link" data-i18n="nav.stories">Stories</a>
+      <a href="#about" class="drawer-link" data-i18n="nav.about">About</a>
+    </nav>
+    <button class="lang-toggle drawer-lang" id="langToggle" aria-label="Switch language">
+      <span class="lang-opt" data-lang="en">EN</span>
+      <span class="lang-sep">/</span>
+      <span class="lang-opt" data-lang="ky">KY</span>
+    </button>
+  </div>
+
+
+  <!-- ==================== HERO ==================== -->
+  <section id="hero" class="hero-fullscreen">
+    <img src="hero-hands.jpg" alt="Hands working with wool for shyrdak" loading="eager" class="hero-bg-img" />
+    <div class="hero-overlay"></div>
+    <div class="hero-caption">
+      <p data-i18n="hero.caption1">Each piece holds a story. Each story continues a life.</p>
+      <p class="hero-caption" data-i18n="hero.caption2">Keeping culture alive through women’s hands</p>
+    </div>
+  </section>
+
+  <div class="ornament-wrapper">
+    <div class="ornament reveal" aria-hidden="true">
+      <svg width="48" height="24" viewBox="0 0 48 24" fill="none">
+        <rect x="0" y="11" width="48" height="2" fill="#C3AD90" />
+        <rect x="20" y="4" width="8" height="16" fill="#C3AD90" opacity="0.4" />
+        <rect x="22" y="0" width="4" height="24" fill="#7B3328" opacity="0.5" />
+      </svg>
+    </div>
+  </div>
+  <!-- ==================== INTRO ==================== -->
+  <section id="intro" class="section">
+    <div class="container">
+      <p class="intro-quote reveal delay-1" data-i18n="intro.quote">
+        This is a collection of stories of women craftswomen from the Naryn region.
+        Through their work, they create, teach, and shape everyday life around them.
+      </p>
+      <p class="intro-sub reveal delay-2" data-i18n="intro.sub">
+        This project explores how women use traditional craft in their everyday lives — to create, work, and shape their
+        communities.
+      </p>
+    </div>
+  </section>
+  <div class="ornament-wrapper">
+    <div class="ornament reveal" aria-hidden="true">
+      <svg width="48" height="24" viewBox="0 0 48 24" fill="none">
+        <rect x="0" y="11" width="48" height="2" fill="#C3AD90" />
+        <rect x="20" y="4" width="8" height="16" fill="#C3AD90" opacity="0.4" />
+        <rect x="22" y="0" width="4" height="24" fill="#7B3328" opacity="0.5" />
+      </svg>
+    </div>
+  </div>
+  <!-- ==================== CONTEXT ==================== -->
+  <section id="context" class="section">
+    <div class="container context-body">
+
+      <p class="context-p reveal" data-i18n="context.p1">
+        The women shared different stories — each shaped by their own experiences, choices, and paths.
+      </p>
+      <p class="context-p reveal delay-1" data-i18n="context.p2">
+        They use craft in their own ways: to work, to support themselves, to teach others, and to build connections with
+        people around them.
+      </p>
+      <p class="context-p reveal delay-2" data-i18n="context.p3">
+        Through what they do, they shape their lives, their communities, and what these practices mean today.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== STORIES ==================== -->
+  <section id="stories" class="section">
+    <div class="container">
+      <div class="stories-header reveal">
+        <p class="hero-eyebrow" style="margin-bottom:0.5rem;" data-i18n="stories.eyebrow">From the kurzhun</p>
+        <h2 data-i18n="stories.title">Stories</h2>
+      </div>
+
+      <!-- Slider wrapper -->
+      <div class="slider-wrapper reveal delay-1">
+        <div class="slider-track" id="sliderTrack">
+
+          <!-- Card 1 -->
+          <a class="story-card felt-surface" href="story.html?id=1" data-story="1">
+            <img class="card-image" src="story-1.jpg" alt="" loading="lazy" />
+            <div class="card-body">
+              <span class="card-number">01</span>
+              <h3 class="card-title" data-i18n="stories.s1.title">Leather remembers hands</h3>
+              <p class="card-text" data-i18n="stories.s1.text">
+                Every scratch is not a defect. It is the trace of a touch,
+                a road, a passing from one pair of hands to another.
+              </p>
+              <span class="card-ornament"></span>
+            </div>
+          </a>
+
+          <!-- Card 2 -->
+          <a class="story-card felt-surface" href="story.html?id=2" data-story="2">
+            <img class="card-image" src="story-2.jpg" alt="" loading="lazy" />
+            <div class="card-body">
+              <span class="card-number">02</span>
+              <h3 class="card-title" data-i18n="stories.s2.title">Felt and warmth</h3>
+              <p class="card-text" data-i18n="stories.s2.text">
+                Felt is not woven — it is pressed. Fibres entangle slowly,
+                under pressure and heat. So do memories.
+              </p>
+              <span class="card-ornament"></span>
+            </div>
+          </a>
+
+          <!-- Card 3 -->
+          <a class="story-card felt-surface" href="story.html?id=3" data-story="3">
+            <img class="card-image" src="story-3.jpg" alt="" loading="lazy" />
+            <div class="card-body">
+              <span class="card-number">03</span>
+              <h3 class="card-title" data-i18n="stories.s3.title">Passing on</h3>
+              <p class="card-text" data-i18n="stories.s3.text">
+                The kurzhun passes from mother to daughter, father to son.
+                Inside it — not only objects. Inside it — a way of life,
+                a silent conversation across time.
+              </p>
+              <span class="card-ornament"></span>
+            </div>
+          </a>
+
+          <!-- Card 4 -->
+          <a class="story-card felt-surface" href="story.html?id=4" data-story="4">
+            <img class="card-image" src="story-4.jpg" alt="" loading="lazy" />
+            <div class="card-body">
+              <span class="card-number">04</span>
+              <h3 class="card-title" data-i18n="stories.s4.title">The weight of things</h3>
+              <p class="card-text" data-i18n="stories.s4.text">
+                Not everything in the bag is heavy. Some objects weigh
+                almost nothing, yet you would never leave them behind.
+              </p>
+              <span class="card-ornament"></span>
+            </div>
+          </a>
+
+          <!-- Card 5 -->
+          <a class="story-card felt-surface" href="story.html?id=5" data-story="5">
+            <img class="card-image" src="story-5.jpg" alt="" loading="lazy" />
+            <div class="card-body">
+              <span class="card-number">05</span>
+              <h3 class="card-title" data-i18n="stories.s5.title">The thread and the pattern</h3>
+              <p class="card-text" data-i18n="stories.s5.text">
+                A single thread means nothing. Together they form something
+                that cannot be reduced to its parts — a pattern, a story,
+                a life.
+              </p>
+              <span class="card-ornament"></span>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- Slider dots -->
+        <div class="slider-dots" id="sliderDots" aria-label="Story navigation">
+          <button class="dot active" data-idx="0" aria-label="Story 1"></button>
+          <button class="dot" data-idx="1" aria-label="Story 2"></button>
+          <button class="dot" data-idx="2" aria-label="Story 3"></button>
+          <button class="dot" data-idx="3" aria-label="Story 4"></button>
+          <button class="dot" data-idx="4" aria-label="Story 5"></button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== ABOUT ==================== -->
+  <section id="about" class="section">
+    <div class="container about-structured">
+
+      <!-- Header -->
+      <div class="about-header reveal">
+        <div class="ornament" aria-hidden="true">
+          <svg width="56" height="28" viewBox="0 0 56 28" fill="none">
+            <rect x="0" y="13" width="56" height="2" fill="#C3AD90" />
+            <rect x="24" y="6" width="8" height="16" fill="#C3AD90" opacity="0.3" />
+            <rect x="26" y="0" width="4" height="28" fill="#7B3328" opacity="0.4" />
+            <rect x="22" y="10" width="12" height="8" stroke="#C3AD90" stroke-width="1" fill="none" opacity="0.4" />
+          </svg>
+        </div>
+        <p class="about-eyebrow" data-i18n="about.eyebrow">About the project</p>
+        <h2 class="about-title" data-i18n="about.heading">Долбоор жөнүндө</h2>
+      </div>
+
+      <!-- Block 1: Why -->
+      <div class="about-block reveal delay-1">
+        <h3 class="about-block-title" data-i18n="about.why.title">Эмне үчүн бул долбоор бар</h3>
+        <p class="about-block-text" data-i18n="about.why.text">
+          This site is an exploration of a traditional image. We collect stories, images and memories connected to the
+          kurzhun — the bag that travelled with the people of Central Asia for centuries.
+        </p>
+      </div>
+
+      <!-- Block 2: Who -->
+      <div class="about-block reveal delay-2">
+        <h3 class="about-block-title" data-i18n="about.who.title">Ким жараткан</h3>
+        <p class="about-block-text" data-i18n="about.who.text">
+          Each element here is like an object carefully drawn from its depths.
+        </p>
+      </div>
+
+      <!-- Block 3: Thanks -->
+      <div class="about-block reveal delay-3">
+        <h3 class="about-block-title" data-i18n="about.thanks.title">Ыраазычылык</h3>
+        <p class="about-block-text" data-i18n="about.thanks.text">
+          —
+        </p>
+      </div>
+
+      <!-- Block 4: Contacts -->
+      <div class="about-block reveal delay-4">
+        <h3 class="about-block-title" data-i18n="about.contacts.title">Байланыштар</h3>
+        <p class="about-block-text" data-i18n="about.contacts.text">
+          —
+        </p>
+      </div>
+
+      <!-- Ornament bar -->
+      <div class="ornament-bar reveal delay-4" aria-hidden="true">
+        <svg width="100%" height="18" viewBox="0 0 600 18" preserveAspectRatio="none">
+          <pattern id="ornPat" x="0" y="0" width="40" height="18" patternUnits="userSpaceOnUse">
+            <rect x="0" y="8" width="40" height="2" fill="#7B3328" />
+            <rect x="8" y="4" width="4" height="10" fill="#C3AD90" />
+            <rect x="28" y="4" width="4" height="10" fill="#C3AD90" />
+            <rect x="18" y="2" width="4" height="14" fill="#7B3328" opacity="0.7" />
+            <rect x="16" y="7" width="8" height="4" fill="#7B3328" opacity="0.4" />
+          </pattern>
+          <rect width="600" height="18" fill="url(#ornPat)" />
+        </svg>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <span data-i18n="footer.left">Kurzhun — A project on tradition and memory</span>
+    <span>© 2026</span>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
