@@ -4,6 +4,7 @@
 
 const TRANSLATIONS = {
   en: {
+    'title':            'Kurjun',
     'meta.title':       'Kurjun — Archive of Stories',
     'meta.desc':        'Kurjun — a traditional bag as a metaphor for storing and passing on stories, knowledge and memory.',
     'nav.stories':      'Stories',
@@ -80,6 +81,7 @@ const TRANSLATIONS = {
   },
 
   ky: {
+    'title':            'Куржун',
     'meta.title':       'Куржун — Тарыхтардын китепканасы',
     'meta.desc':        'Куржун — даанышман сумканы эстутум, билим жана тарыхтарды сактоонун жана өткөрүп берүүнүн символу катары.',
     'nav.stories':      'Тарыхтар',
