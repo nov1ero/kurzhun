@@ -4,8 +4,8 @@
 
 const TRANSLATIONS = {
   en: {
-    'meta.title':       'Kurzhun — Archive of Stories',
-    'meta.desc':        'Kurzhun — a traditional bag as a metaphor for storing and passing on stories, knowledge and memory.',
+    'meta.title':       'Kurjun — Archive of Stories',
+    'meta.desc':        'Kurjun — a traditional bag as a metaphor for storing and passing on stories, knowledge and memory.',
     'nav.stories':      'Stories',
     'nav.gallery':      'Gallery',
     'nav.memory':       'Memory',
@@ -15,46 +15,46 @@ const TRANSLATIONS = {
     'hero.caption2':    'Keeping culture alive through women’s hands',
     'hero.title1':      'In every object —',
     'hero.title2':      'a whole story',
-    'hero.desc':        'A kurzhun is not just a bag. It is a place where memories, knowledge and words are kept — passing from hand to hand, generation to generation.',
+    'hero.desc':        'A Kurjun is not just a bag. It is a place where memories, knowledge and words are kept — passing from hand to hand, generation to generation.',
     'hero.scroll':      'Scroll down',
     'intro.quote':      'This is a collection of stories of women craftswomen from the Naryn region. Through their work, they create, teach, and shape everyday life around them.',
     'intro.sub':        'This project explores how women use traditional craft in their everyday lives — to create, work, and shape their communities.',
     'context.p1':       'The women shared different stories — each shaped by their own experiences, choices, and paths.',
     'context.p2':       'They use craft in their own ways: to work, to support themselves, to teach others, and to build connections with people around them.',
     'context.p3':       'Through what they do, they shape their lives, their communities, and what these practices mean today.',
-    'stories.eyebrow':  'From the kurzhun',
+    'stories.eyebrow':  'From the Kurjun',
     'stories.title':    'Stories',
     'stories.s1.title': 'Leather remembers hands',
     'stories.s1.text':  'Every scratch is not a defect. It is the trace of a touch, a road, a passing from one pair of hands to another.',
     'stories.s2.title': 'Felt and warmth',
     'stories.s2.text':  'Felt is not woven — it is pressed. Fibres entangle slowly, under pressure and heat. So do memories.',
     'stories.s3.title': 'Passing on',
-    'stories.s3.text':  'The kurzhun passes from mother to daughter, father to son. Inside it — not only objects. Inside it — a way of life, a silent conversation across time.',
+    'stories.s3.text':  'The Kurjun passes from mother to daughter, father to son. Inside it — not only objects. Inside it — a way of life, a silent conversation across time.',
     'stories.s4.title': 'The weight of things',
     'stories.s4.text':  'Not everything in the bag is heavy. Some objects weigh almost nothing, yet you would never leave them behind.',
     'stories.s5.title': 'The thread and the pattern',
     'stories.s5.text':  'A single thread means nothing. Together they form something that cannot be reduced to its parts — a pattern, a story, a life.',
     'gallery.eyebrow':  'Images',
     'gallery.title':    'Gallery',
-    'gallery.c1':       'Kurzhun · tradition',
+    'gallery.c1':       'Kurjun · tradition',
     'gallery.c2':       'Felt · material',
     'gallery.c3':       'Passing · gesture',
     'memory.eyebrow':   'Sound · Memory',
     'memory.title':     'What cannot be seen',
-    'memory.p1':        'The kurzhun kept more than objects. In it was also what cannot be touched: a melody, the smell of smoke, a voice you no longer hear.',
+    'memory.p1':        'The Kurjun kept more than objects. In it was also what cannot be touched: a melody, the smell of smoke, a voice you no longer hear.',
     'memory.p2':        'Some things live only in the body, only in sensation. This project attempts to give them a place.',
-    'memory.quote':     '"Memory is a kurzhun. You carry it with you, and it grows heavier with years — but you do not put it down."',
+    'memory.quote':     '"Memory is a Kurjun. You carry it with you, and it grows heavier with years — but you do not put it down."',
     'about.eyebrow':    'About the project',
     'about.heading':     'About the project',
     'about.why.title':   'Why this project exists',
-    'about.why.text':    'This site is an exploration of a traditional image. We collect stories, images and memories connected to the kurzhun — the bag that travelled with the people of Central Asia for centuries.',
+    'about.why.text':    'This site is an exploration of a traditional image. We collect stories, images and memories connected to the Kurjun — the bag that travelled with the people of Central Asia for centuries.',
     'about.who.title':   'Who created it',
     'about.who.text':    'Each element here is like an object carefully drawn from its depths.',
     'about.thanks.title':'Acknowledgements',
     'about.thanks.text': '—',
     'about.contacts.title': 'Contacts',
     'about.contacts.text': '—',
-    'footer.left':      'Kurzhun — A project on tradition and memory',
+    'footer.left':      'Kurjun — A project on tradition and memory',
 
     // Story detail page
     'story.back':        '← Back',
@@ -64,19 +64,19 @@ const TRANSLATIONS = {
     // Full story content (detail pages)
     'story.1.eyebrow':  'Story 01',
     'story.1.title':    'Leather remembers hands',
-    'story.1.body':     `Every scratch is not a defect.\n\nIt is the trace of a touch — a road, a journey, a passing from one pair of hands to another. The material stores history better than words ever could. You can read a kurzhun the way you read a face: by its marks, its worn patches, the places where grip was tightest.\n\nThe craftsmen who stitched the bag knew this. They did not aim for smoothness. They aimed for durability, which is something else entirely — not the absence of change, but the ability to absorb it and remain.`,
+    'story.1.body':     `Every scratch is not a defect.\n\nIt is the trace of a touch — a road, a journey, a passing from one pair of hands to another. The material stores history better than words ever could. You can read a Kurjun the way you read a face: by its marks, its worn patches, the places where grip was tightest.\n\nThe craftsmen who stitched the bag knew this. They did not aim for smoothness. They aimed for durability, which is something else entirely — not the absence of change, but the ability to absorb it and remain.`,
     'story.2.eyebrow':  'Story 02',
     'story.2.title':    'Felt and warmth',
-    'story.2.body':     `Felt is not woven. It is pressed.\n\nFibres entangle slowly, under pressure and heat — there is no loom, no shuttle, no rhythm of over and under. The material comes into being through force and closeness. So do memories.\n\nThe felt lining of a kurzhun was not decoration. It was insulation — against cold, against breakage, against loss. The softness was structural. The warmth was intentional.`,
+    'story.2.body':     `Felt is not woven. It is pressed.\n\nFibres entangle slowly, under pressure and heat — there is no loom, no shuttle, no rhythm of over and under. The material comes into being through force and closeness. So do memories.\n\nThe felt lining of a Kurjun was not decoration. It was insulation — against cold, against breakage, against loss. The softness was structural. The warmth was intentional.`,
     'story.3.eyebrow':  'Story 03',
     'story.3.title':    'Passing on',
-    'story.3.body':     `The kurzhun passes from mother to daughter, from father to son.\n\nInside it — not only objects. Inside it — a way of life, a set of unspoken instructions, a silent conversation across time. To receive a kurzhun is to inherit a form of attention: you learn what deserves to be kept, what deserves to travel, what deserves to arrive.\n\nSome things you are told. Some things you carry.`,
+    'story.3.body':     `The Kurjun passes from mother to daughter, from father to son.\n\nInside it — not only objects. Inside it — a way of life, a set of unspoken instructions, a silent conversation across time. To receive a Kurjun is to inherit a form of attention: you learn what deserves to be kept, what deserves to travel, what deserves to arrive.\n\nSome things you are told. Some things you carry.`,
     'story.4.eyebrow':  'Story 04',
     'story.4.title':    'The weight of things',
-    'story.4.body':     `Not everything in the bag is heavy.\n\nSome objects weigh almost nothing — a dried flower, a folded note, a coin worn smooth. Yet these are the last things you would leave behind. Weight is not the measure of value; sometimes the lightest objects are the ones you cross a mountain for.\n\nThe kurzhun does not judge. It holds what you decide to carry, and it keeps it without question.`,
+    'story.4.body':     `Not everything in the bag is heavy.\n\nSome objects weigh almost nothing — a dried flower, a folded note, a coin worn smooth. Yet these are the last things you would leave behind. Weight is not the measure of value; sometimes the lightest objects are the ones you cross a mountain for.\n\nThe Kurjun does not judge. It holds what you decide to carry, and it keeps it without question.`,
     'story.5.eyebrow':  'Story 05',
     'story.5.title':    'The thread and the pattern',
-    'story.5.body':     `A single thread means nothing.\n\nTogether they form something that cannot be reduced to its parts — a pattern, a logic, a life. The woven textiles carried in a kurzhun were never random. Every colour, every crossing of thread, was a decision. A record.\n\nWhen the pattern repeats across generations, it is not repetition. It is recognition. You see the same form in your grandmother's hands and in your own, and something connects — not just the pattern, but the intention behind it.`,
+    'story.5.body':     `A single thread means nothing.\n\nTogether they form something that cannot be reduced to its parts — a pattern, a logic, a life. The woven textiles carried in a Kurjun were never random. Every colour, every crossing of thread, was a decision. A record.\n\nWhen the pattern repeats across generations, it is not repetition. It is recognition. You see the same form in your grandmother's hands and in your own, and something connects — not just the pattern, but the intention behind it.`,
   },
 
   ky: {
@@ -155,11 +155,11 @@ const TRANSLATIONS = {
 };
 
 /* ---- Active language ---- */
-let currentLang = localStorage.getItem('kurzhun-lang') || 'en';
+let currentLang = localStorage.getItem('Kurjun-lang') || 'en';
 
 function applyLang(lang) {
   currentLang = lang;
-  localStorage.setItem('kurzhun-lang', lang);
+  localStorage.setItem('Kurjun-lang', lang);
   document.documentElement.lang = lang;
 
   // Update all data-i18n elements
