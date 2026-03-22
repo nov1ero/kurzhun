@@ -126,20 +126,50 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 });
 
 /* =========================================
-   PAGE TRANSITION — navigate away
+   CARD CLICK — direct navigation (no animation)
    ========================================= */
-function navigateTo(url) {
-  document.body.classList.add('page-exit');
-  setTimeout(() => { window.location.href = url; }, 420);
+
+let _expanding = false;
+
+function expandCard(card) {
+  if (_expanding) return;
+  _expanding = true;
+
+  const url = card.getAttribute('href');
+  if (!url) { _expanding = false; return; }
+
+  // Save scroll position so back button restores it
+  sessionStorage.setItem('kurzhun-scroll', String(window.scrollY));
+
+  window.location.href = url;
 }
 
-// Intercept story card clicks for transition
+// Prevent native <a> navigation and route through expandCard
+// (needed so the _expanding flag prevents double-fire from mouseup + click)
 document.querySelectorAll('.story-card[href]').forEach(card => {
   card.addEventListener('click', e => {
     e.preventDefault();
-    navigateTo(card.getAttribute('href'));
+    expandCard(card);
   });
 });
+
+
+/* =========================================
+   SCROLL RESTORE — on index.html load
+   ========================================= */
+(function restoreScroll() {
+  const savedY = sessionStorage.getItem('kurzhun-scroll');
+  if (savedY !== null) {
+    sessionStorage.removeItem('kurzhun-scroll');
+    // Disable smooth scroll temporarily to snap to position
+    document.documentElement.style.scrollBehavior = 'auto';
+    window.scrollTo(0, parseInt(savedY, 10));
+    setTimeout(() => {
+      document.documentElement.style.scrollBehavior = '';
+    }, 100);
+  }
+})();
+
 
 /* =========================================
    STORIES SLIDER
@@ -184,7 +214,10 @@ document.querySelectorAll('.story-card[href]').forEach(card => {
   });
 
   /* ---- Mouse drag ---- */
+  let mousedownTarget = null;
+
   track.addEventListener('mousedown', e => {
+    mousedownTarget = e.target;   // save BEFORE is-dragging (pointer-events:none) is set
     isDragging  = true;
     startX      = e.clientX;
     startOffset = offset;
@@ -209,10 +242,16 @@ document.querySelectorAll('.story-card[href]').forEach(card => {
     const swipeThreshold = cw * 0.18;
 
     if (Math.abs(dx) < 5) {
-      // treat as click — let the link fire (pointer-events restored)
+      // It was a tap/click, not a drag.
+      // Use mousedownTarget (saved before pointer-events:none was applied)
+      // because e.target on window mouseup passes through pointer-events:none cards.
       snapTo(currentIdx);
+      const card = mousedownTarget?.closest?.('.story-card[href]');
+      mousedownTarget = null;
+      if (card) expandCard(card);
       return;
     }
+    mousedownTarget = null;
 
     if (dx < -swipeThreshold) snapTo(currentIdx + 1);
     else if (dx > swipeThreshold) snapTo(currentIdx - 1);
@@ -240,7 +279,12 @@ document.querySelectorAll('.story-card[href]').forEach(card => {
     const cw = getCardWidth();
     if (dx < -(cw * 0.18)) snapTo(currentIdx + 1);
     else if (dx > (cw * 0.18)) snapTo(currentIdx - 1);
-    else snapTo(currentIdx);
+    else {
+      // Tap — navigate to card
+      snapTo(currentIdx);
+      const card = e.target.closest('.story-card[href]');
+      if (card) expandCard(card);
+    }
   });
 
   /* ---- Keyboard navigation when focused in slider ---- */

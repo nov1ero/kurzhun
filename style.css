@@ -34,6 +34,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -524,9 +525,9 @@ nav {
   display: flex;
   gap: 2rem;
   cursor: grab;
-  /* overflow: hidden; */
-  /*JS handles scroll offset via transform */
   padding-bottom: 0.5rem;
+  /* Prevent horizontal touch from scrolling the page */
+  touch-action: pan-y;
 }
 
 .slider-track.is-dragging {
@@ -728,6 +729,29 @@ body.page-enter {
 body.page-exit {
   animation: pageExit 0.4s cubic-bezier(0.23, 1, 0.32, 1) forwards;
   pointer-events: none;
+}
+
+/* =========================================
+   CARD EXPAND OVERLAY
+   ========================================= */
+
+.card-expand-overlay {
+  position: fixed;
+  z-index: 9000;
+  background: var(--warm-white);
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: 0;
+  /* transition set via JS for precise timing */
+}
+
+.card-expand-overlay img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(0.9) brightness(0.95) saturate(0.85);
 }
 
 /* =========================================
@@ -959,94 +983,235 @@ footer {
 }
 
 /* =========================================
-   STORY DETAIL PAGE
+   STORY DETAIL PAGE — NEW LAYOUT
    ========================================= */
 
-.story-page body,
 body.story-page {
   background-color: var(--warm-white);
 }
 
-.story-back-wrap {
-  padding: 7rem 5% 0;
-}
-
-.story-back-link {
-  font-size: 0.78rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--wool);
-  text-decoration: none;
-  display: inline-flex;
+/* --- Back button --- */
+.story-back-btn {
+  position: fixed;
+  top: 1.4rem;
+  left: 5%;
+  z-index: 210;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
   align-items: center;
-  gap: 0.5rem;
-  transition: color var(--transition), gap var(--transition);
+  gap: 0.45rem;
+  color: var(--warm-white);
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color var(--transition), opacity var(--transition);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+  padding: 0.25rem 0;
 }
 
-.story-back-link:hover {
-  color: var(--brown);
-  gap: 0.75rem;
+.story-back-btn:hover {
+  opacity: 0.7;
 }
 
-.story-hero-img {
+/* --- Story nav overlay on hero --- */
+.story-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  padding: 1.5rem 5%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  pointer-events: all;
+}
+
+/* --- Hero fullscreen --- */
+.story-hero-fullscreen {
   position: relative;
-  margin: 3rem 5%;
-  overflow: hidden;
-  clip-path: polygon(1% 0.5%, 99% 0%,
-      100% 1.5%, 99.5% 98.5%,
-      98% 100%, 0.5% 99.5%,
-      0% 98%, 0.5% 1%);
-  max-height: 55vh;
-}
-
-.story-hero-img img {
   width: 100%;
-  height: 55vh;
-  object-fit: cover;
-  filter: contrast(0.88) brightness(0.94) saturate(0.78);
-  display: block;
+  height: 100svh;
+  overflow: hidden;
 }
 
-.story-hero-overlay {
+.story-hero-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent 40%, rgba(24, 15, 8, 0.35) 100%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: contrast(0.9) brightness(0.82) saturate(0.78);
+  animation: heroZoom 8s ease-out forwards;
+  will-change: transform;
 }
 
-.story-article {
-  padding-top: 4rem;
-  padding-bottom: 6rem;
-  max-width: 680px;
+.story-hero-dim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(24,15,8,0.22) 0%,
+    rgba(24,15,8,0.08) 45%,
+    rgba(24,15,8,0.6) 100%
+  );
 }
 
-.story-header {
-  margin-bottom: 2.5rem;
+/* --- Name block --- */
+.story-name-block {
+  text-align: center;
+  padding: clamp(4rem, 8vw, 7rem) 5% clamp(3rem, 6vw, 5rem);
+  max-width: 720px;
+  margin: 0 auto;
 }
 
-.story-title-h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  color: var(--brown);
-  margin-top: 0.5rem;
-  line-height: 1.12;
+.story-eyebrow-text {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--wool);
+  margin-bottom: 1rem;
+  max-width: none;
 }
 
-.story-body-text p {
-  font-size: clamp(1rem, 1.4vw, 1.12rem);
-  line-height: 1.9;
-  color: var(--text-light);
-  max-width: 60ch;
-  margin-bottom: 1.5rem;
-}
-
-.story-body-text p:first-child {
+.story-h1 {
   font-family: var(--serif);
-  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
-  font-style: italic;
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: 300;
   color: var(--brown);
+  line-height: 1.1;
+  margin-bottom: 1.4rem;
+  letter-spacing: 0.01em;
 }
 
+.story-tagline {
+  font-family: var(--serif);
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  font-style: italic;
+  color: var(--text-light);
+  line-height: 1.65;
+  max-width: 46ch;
+  margin: 0 auto;
+}
+
+/* --- Ornament divider on story page --- */
+.story-ornament-divider {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0 10% 3rem;
+  opacity: 0.5;
+}
+
+.story-ornament-divider::before,
+.story-ornament-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--beige);
+}
+
+/* --- Content wrap --- */
+.story-content-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+/* --- Body paragraph sections --- */
+.story-para-section {
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.story-body-p {
+  font-size: clamp(1rem, 1.4vw, 1.12rem);
+  line-height: 1.95;
+  color: var(--text-light);
+  max-width: 62ch;
+  margin: 0 auto;
+}
+
+/* --- Pull quote --- */
+.story-pull-quote-wrap {
+  margin: clamp(3rem, 6vw, 5.5rem) 0;
+  padding: 0 5%;
+}
+
+.story-pull-quote {
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 2.6vw, 2rem);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--brown);
+  border-left: 2px solid var(--muted-red);
+  padding-left: clamp(1.5rem, 3vw, 2.5rem);
+  margin: 0;
+  max-width: 44ch;
+}
+
+/* --- Process / secondary images --- */
+.story-process-img-wrap {
+  margin: clamp(2.5rem, 5vw, 5rem) 0;
+  overflow: hidden;
+  clip-path: polygon(1% 0.5%, 99% 0%,
+    100% 1.5%, 99.5% 98.5%,
+    98% 100%, 0.5% 99.5%,
+    0% 98%, 0.5% 1%);
+}
+
+.story-process-img-alt {
+  clip-path: polygon(0% 1.5%, 1.2% 0%,
+    98.8% 0.8%, 100% 2%,
+    99.3% 98.3%, 98% 100%,
+    1.5% 99%, 0% 97.5%);
+  margin-left: auto;
+  max-width: 85%;
+}
+
+.story-process-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+  filter: contrast(0.88) brightness(0.96) saturate(0.8);
+  transition: transform var(--slow);
+}
+
+.story-process-img-wrap:hover .story-process-img {
+  transform: scale(1.02);
+}
+
+/* --- Scroll reveal on story page --- */
+.story-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.85s cubic-bezier(0.23,1,0.32,1),
+              transform 0.85s cubic-bezier(0.23,1,0.32,1);
+  will-change: opacity, transform;
+}
+
+.story-reveal.story-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered delays for story sections */
+.story-content-wrap .story-reveal:nth-child(1) { transition-delay: 0.05s; }
+.story-content-wrap .story-reveal:nth-child(2) { transition-delay: 0.12s; }
+.story-content-wrap .story-reveal:nth-child(3) { transition-delay: 0.08s; }
+.story-content-wrap .story-reveal:nth-child(4) { transition-delay: 0.04s; }
+.story-content-wrap .story-reveal:nth-child(5) { transition-delay: 0.1s; }
+
+/* --- Next story block --- */
 .story-next-wrap {
-  margin-top: 1rem;
+  padding: 4rem 5% 6rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .story-next-link {
@@ -1054,7 +1219,7 @@ body.story-page {
   flex-direction: column;
   gap: 0.35rem;
   text-decoration: none;
-  padding: 1.5rem 2rem;
+  padding: 1.5rem 3rem 1.5rem 2rem;
   border: 1px solid var(--beige);
   clip-path: polygon(0% 1%, 99% 0%,
       100% 2%, 98.5% 99%,
@@ -1070,7 +1235,7 @@ body.story-page {
 }
 
 .story-next-link:hover .story-next-arrow {
-  transform: translateX(6px);
+  transform: translateY(-50%) translateX(6px);
 }
 
 .story-next-label {

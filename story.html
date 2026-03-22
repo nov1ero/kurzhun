@@ -8,61 +8,72 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 </head>
-<body class="page-enter story-page">
+<body class="story-page">
 
-  <!-- NAV -->
-  <nav aria-label="Main navigation">
-    <a href="index.html" class="nav-logo">Kurzhun</a>
-    <ul class="nav-links">
-      <li><a href="index.html#stories" data-i18n="nav.stories">Stories</a></li>
-      <li><a href="index.html#gallery" data-i18n="nav.gallery">Gallery</a></li>
-      <li><a href="index.html#memory" data-i18n="nav.memory">Memory</a></li>
-      <li><a href="index.html#about" data-i18n="nav.about">About</a></li>
-    </ul>
-    <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+  <!-- ==================== NAV ==================== -->
+  <nav aria-label="Main navigation" class="story-nav" id="storyNav">
+    <a href="index.html" class="nav-logo" id="navLogo">Kurjun</a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ==================== DRAWER MENU ==================== -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <div class="drawer" id="drawerMenu" aria-hidden="true">
+    <nav class="drawer-nav" aria-label="Drawer navigation">
+      <a href="index.html#stories" class="drawer-link" data-i18n="nav.stories">Stories</a>
+      <a href="index.html#about" class="drawer-link" data-i18n="nav.about">About</a>
+    </nav>
+    <button class="lang-toggle drawer-lang" id="langToggle" aria-label="Switch language">
       <span class="lang-opt" data-lang="en">EN</span>
       <span class="lang-sep">/</span>
       <span class="lang-opt" data-lang="ky">KY</span>
     </button>
-  </nav>
-
-  <!-- BACK LINK -->
-  <div class="story-back-wrap">
-    <a href="index.html" class="story-back-link" id="backLink" data-i18n="story.back">← Back</a>
   </div>
 
-  <!-- HERO IMAGE -->
-  <div class="story-hero-img">
-    <img id="storyHeroImg" src="" alt="" />
-    <div class="story-hero-overlay" aria-hidden="true"></div>
+  <!-- ==================== BACK BUTTON ==================== -->
+  <button class="story-back-btn" id="backBtn" aria-label="Back">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <path d="M12.5 5L7.5 10L12.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span data-i18n="story.back">Back</span>
+  </button>
+
+  <!-- ==================== HERO IMAGE ==================== -->
+  <section class="story-hero-fullscreen" id="storyHeroSection">
+    <img id="storyHeroImg" src="" alt="" class="story-hero-bg" />
+    <div class="story-hero-dim" aria-hidden="true"></div>
+  </section>
+
+  <!-- ==================== NAME BLOCK ==================== -->
+  <div class="story-name-block story-reveal">
+    <p class="story-eyebrow-text" id="storyEyebrow"></p>
+    <h1 class="story-h1" id="storyTitle"></h1>
+    <p class="story-tagline" id="storyTagline"></p>
   </div>
 
-  <!-- STORY CONTENT -->
-  <article class="story-article container">
-    <header class="story-header">
-      <p class="hero-eyebrow" id="storyEyebrow"></p>
-      <h1 id="storyTitle" class="story-title-h1"></h1>
-    </header>
-    <div class="story-body-text" id="storyBody"></div>
+  <div class="story-ornament-divider" aria-hidden="true">
+    <svg width="48" height="24" viewBox="0 0 48 24" fill="none">
+      <rect x="0" y="11" width="48" height="2" fill="#C3AD90"/>
+      <rect x="20" y="4" width="8" height="16" fill="#C3AD90" opacity="0.4"/>
+      <rect x="22" y="0" width="4" height="24" fill="#7B3328" opacity="0.5"/>
+    </svg>
+  </div>
 
-    <!-- Ornament divider -->
-    <div class="ornament" aria-hidden="true" style="margin: 4rem 0 3rem;">
-      <svg width="48" height="24" viewBox="0 0 48 24" fill="none">
-        <rect x="0" y="11" width="48" height="2" fill="#C3AD90"/>
-        <rect x="20" y="4" width="8" height="16" fill="#C3AD90" opacity="0.4"/>
-        <rect x="22" y="0" width="4" height="24" fill="#7B3328" opacity="0.5"/>
-      </svg>
-    </div>
+  <!-- ==================== BODY — JS-rendered sections ==================== -->
+  <div class="story-content-wrap" id="storyContentWrap">
+    <!-- sections injected by JS -->
+  </div>
 
-    <!-- Next story link -->
-    <div class="story-next-wrap">
-      <a href="#" class="story-next-link" id="nextStoryLink">
-        <span class="story-next-label" id="nextLabel" data-i18n="story.next">Next story</span>
-        <span class="story-next-title" id="nextTitle"></span>
-        <span class="story-next-arrow">→</span>
-      </a>
-    </div>
-  </article>
+  <!-- ==================== NEXT STORY ==================== -->
+  <div class="story-next-wrap story-reveal" id="storyNextWrap">
+    <a href="#" class="story-next-link" id="nextStoryLink">
+      <span class="story-next-label" data-i18n="story.next">Next story</span>
+      <span class="story-next-title" id="nextTitle"></span>
+      <span class="story-next-arrow">→</span>
+    </a>
+  </div>
 
   <footer>
     <span data-i18n="footer.left">Kurzhun — A project on tradition and memory</span>
@@ -71,7 +82,9 @@
 
   <script src="i18n.js"></script>
   <script>
-    // Story images map
+    'use strict';
+
+    /* ---- Story images ---- */
     const STORY_IMAGES = {
       1: 'story-1.jpg',
       2: 'story-2.jpg',
@@ -80,58 +93,198 @@
       5: 'story-5.jpg',
     };
 
+    /* ---- Scroll reveal on story page ---- */
+    function initStoryReveal() {
+      const reveals = document.querySelectorAll('.story-reveal');
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('story-revealed');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+      reveals.forEach(el => obs.observe(el));
+    }
+
+    /* ---- Load story ---- */
     function loadStory() {
       const params = new URLSearchParams(window.location.search);
       const id = parseInt(params.get('id') || '1', 10);
       const lang = window.getCurrentLang();
+      const t = TRANSLATIONS[lang];
 
-      // Image
-      const img = document.getElementById('storyHeroImg');
-      img.src = STORY_IMAGES[id] || STORY_IMAGES[1];
-      img.alt = TRANSLATIONS[lang][`story.${id}.title`] || '';
+      // Hero image
+      const heroImg = document.getElementById('storyHeroImg');
+      heroImg.src = STORY_IMAGES[id] || STORY_IMAGES[1];
+      heroImg.alt = t[`story.${id}.title`] || '';
 
-      // Text
-      document.getElementById('storyEyebrow').textContent = TRANSLATIONS[lang][`story.${id}.eyebrow`] || '';
-      document.getElementById('storyTitle').textContent   = TRANSLATIONS[lang][`story.${id}.title`]   || '';
+      // Name block
+      document.getElementById('storyEyebrow').textContent = t[`story.${id}.eyebrow`] || '';
+      document.getElementById('storyTitle').textContent   = t[`story.${id}.title`]   || '';
 
-      // Body — preserve newlines as paragraphs
-      const bodyEl = document.getElementById('storyBody');
-      const bodyText = TRANSLATIONS[lang][`story.${id}.body`] || '';
-      bodyEl.innerHTML = bodyText
-        .split('\n\n')
-        .map(p => p.trim())
-        .filter(Boolean)
-        .map(p => `<p>${p}</p>`)
-        .join('');
+      // Body paragraphs
+      const rawBody = t[`story.${id}.body`] || '';
+      const paragraphs = rawBody.split('\n\n').map(p => p.trim()).filter(Boolean);
 
-      // Next story link
+      // Tagline = first sentence of first paragraph
+      const firstPara = paragraphs[0] || '';
+      document.getElementById('storyTagline').textContent = firstPara;
+
+      // Build content sections
+      const wrap = document.getElementById('storyContentWrap');
+      wrap.innerHTML = '';
+
+      // Para 1 (lead — already shown as tagline, skip)
+      // Para 2 → main body paragraph
+      if (paragraphs[1]) {
+        wrap.appendChild(makeParagraphSection(paragraphs[1], 'delay-1'));
+      }
+
+      // Process image in middle (use story image with different treatment)
+      wrap.appendChild(makeProcessImage(id));
+
+      // Para 3 → pull quote style
+      if (paragraphs[2]) {
+        wrap.appendChild(makePullQuote(paragraphs[2]));
+      }
+
+      // Second process photo (use alternate image index)
+      wrap.appendChild(makeProcessImage2(id));
+
+      // Remaining paragraphs as closing text
+      for (let i = 3; i < paragraphs.length; i++) {
+        wrap.appendChild(makeParagraphSection(paragraphs[i], 'delay-1'));
+      }
+
+      // Next story
       const nextId = id < 5 ? id + 1 : 1;
       const nextLink = document.getElementById('nextStoryLink');
       nextLink.href = `story.html?id=${nextId}`;
-      document.getElementById('nextTitle').textContent = TRANSLATIONS[lang][`story.${nextId}.title`] || '';
+      document.getElementById('nextTitle').textContent = t[`story.${nextId}.title`] || '';
 
       // Page title
-      document.title = `Kurzhun — ${TRANSLATIONS[lang][`story.${id}.title`]}`;
+      document.title = `Kurzhun — ${t[`story.${id}.title`]}`;
 
-      // Attach transition on next link click
+      // Next story click
       nextLink.addEventListener('click', e => {
         e.preventDefault();
-        navigateTo(nextLink.href);
+        navigateToStory(nextLink.href);
       });
+
+      // Kick off reveal observer after DOM is populated
+      setTimeout(initStoryReveal, 60);
     }
 
-    function navigateTo(url) {
+    function makeParagraphSection(text, delayClass) {
+      const div = document.createElement('div');
+      div.className = `story-para-section story-reveal ${delayClass || ''}`;
+      const p = document.createElement('p');
+      p.className = 'story-body-p';
+      p.textContent = text;
+      div.appendChild(p);
+      return div;
+    }
+
+    function makePullQuote(text) {
+      const div = document.createElement('div');
+      div.className = 'story-pull-quote-wrap story-reveal';
+      const blockquote = document.createElement('blockquote');
+      blockquote.className = 'story-pull-quote';
+      blockquote.textContent = `"${text}"`;
+      div.appendChild(blockquote);
+      return div;
+    }
+
+    function makeProcessImage(storyId) {
+      // Use the story's own image but with slight offset / different crop
+      const div = document.createElement('div');
+      div.className = 'story-process-img-wrap story-reveal';
+      const img = document.createElement('img');
+      img.className = 'story-process-img';
+      // Use previous story's image for variety (wraps around)
+      const altId = storyId > 1 ? storyId - 1 : 5;
+      img.src = STORY_IMAGES[altId];
+      img.alt = '';
+      img.loading = 'lazy';
+      div.appendChild(img);
+      return div;
+    }
+
+    function makeProcessImage2(storyId) {
+      const div = document.createElement('div');
+      div.className = 'story-process-img-wrap story-process-img-alt story-reveal';
+      const img = document.createElement('img');
+      img.className = 'story-process-img';
+      const altId = storyId < 5 ? storyId + 1 : 1;
+      img.src = STORY_IMAGES[altId];
+      img.alt = '';
+      img.loading = 'lazy';
+      div.appendChild(img);
+      return div;
+    }
+
+    /* ---- Navigation ---- */
+    function navigateToStory(url) {
       document.body.classList.add('page-exit');
       setTimeout(() => { window.location.href = url; }, 420);
     }
 
-    // Back link with transition
-    document.getElementById('backLink').addEventListener('click', e => {
-      e.preventDefault();
-      navigateTo('index.html#stories');
+    /* ---- Back button ---- */
+    document.getElementById('backBtn').addEventListener('click', () => {
+      // If we came from index, use history to restore scroll
+      if (document.referrer.includes('index.html') || sessionStorage.getItem('kurzhun-scroll')) {
+        window.history.back();
+      } else {
+        document.body.classList.add('page-exit');
+        setTimeout(() => { window.location.href = 'index.html#stories'; }, 400);
+      }
     });
 
-    // Reload story content when language changes
+    /* ---- Nav scroll behaviour (same as index) ---- */
+    const nav = document.getElementById('storyNav');
+    const logo = document.getElementById('navLogo');
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY > window.innerHeight * 0.7;
+      nav.style.backgroundColor = scrolled ? 'rgba(247, 242, 233, 0.95)' : 'transparent';
+      nav.style.backdropFilter   = scrolled ? 'blur(12px)' : 'none';
+      nav.style.boxShadow        = scrolled ? '0 1px 0 rgba(180,155,120,0.18)' : 'none';
+      logo.style.color           = scrolled ? 'var(--brown)' : 'var(--warm-white)';
+      nav.querySelectorAll('.hamburger span').forEach(s => {
+        s.style.background = scrolled ? 'var(--brown)' : 'var(--warm-white)';
+      });
+      // Back button colour
+      const btn = document.getElementById('backBtn');
+      btn.style.color = scrolled ? 'var(--brown)' : 'var(--warm-white)';
+    }, { passive: true });
+
+    /* ---- Drawer (hamburger) ---- */
+    const hamburgerBtn  = document.getElementById('hamburgerBtn');
+    const drawerMenu    = document.getElementById('drawerMenu');
+    const drawerOverlay = document.getElementById('drawerOverlay');
+
+    function openDrawer() {
+      drawerMenu.classList.add('open');
+      drawerOverlay.classList.add('open');
+      hamburgerBtn.classList.add('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+      drawerMenu.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeDrawer() {
+      drawerMenu.classList.remove('open');
+      drawerOverlay.classList.remove('open');
+      hamburgerBtn.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      drawerMenu.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    hamburgerBtn.addEventListener('click', openDrawer);
+    drawerOverlay.addEventListener('click', closeDrawer);
+    document.querySelectorAll('.drawer-link').forEach(l => l.addEventListener('click', closeDrawer));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+
+    /* ---- Language reload ---- */
     const _origApply = window.applyLang;
     window.applyLang = function(lang) {
       _origApply(lang);

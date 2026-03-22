@@ -58,7 +58,7 @@ const TRANSLATIONS = {
     'footer.left':      'Kurjun — A project on tradition and memory',
 
     // Story detail page
-    'story.back':        '← Back',
+    'story.back':        'Back',
     'story.readMore':    'Read More',
     'story.next':        'Next story',
 
@@ -134,7 +134,7 @@ const TRANSLATIONS = {
     'about.contacts.text': '—',
     'footer.left':      'Куржун — Салт жана эс тутум жөнүндө долбоор',
 
-    'story.back':        '← Артка',
+    'story.back':        'Артка',
     'story.readMore':    'Дагы окуу',
     'story.next':        'Кийинки тарых',
 
