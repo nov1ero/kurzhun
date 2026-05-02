@@ -1,3 +1,40 @@
 CLAUDE.md
 *.md
 import-translations.ts
+
+# dependencies
+node_modules
+
+# Next.js
+.next
+out
+
+# build output
+dist
+
+# environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# OS
+.DS_Store
+Thumbs.db
+
+# editors
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

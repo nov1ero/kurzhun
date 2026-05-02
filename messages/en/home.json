@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "title": "Kurjun — Archive of Stories",
+    "desc": "Kurjun — a traditional bag as a metaphor for storing and passing on stories, knowledge and memory."
+  },
+  "hero": {
+    "eyebrow": "Traditional craft",
+    "caption1": "Each piece holds a story. Each story continues a life.",
+    "caption2": "Keeping culture alive through women's hands",
+    "title1": "Stories crafted by women’s hands. ",
+    "title2": "",
+    "desc": "shaping lives and keeping",
+    "desc2": "culture alive through Kyrgyz craft"
+  },
+  "intro": {
+    "quote": "This is a collection of stories of women craftswomen from the Naryn region. Through their work, they create, teach, and shape everyday life around them.",
+    "sub": "This project explores how women use traditional craft in their everyday lives — to create, work, and shape their communities."
+  },
+  "context": {
+    "p1": "The women shared different stories — each shaped by their own experiences, choices, and paths.",
+    "p2": "They use craft in their own ways: to work, to support themselves, to teach others, and to build connections with people around them.",
+    "p3": "Through what they do, they shape their lives, their communities, and what these practices mean today."
+  },
+  "stories": {
+    "eyebrow": "From the Kurjun",
+    "title": "Stories",
+    "readAll": "View all",
+    "s1": { "title": "Leather remembers hands", "text": "Every scratch is not a defect. It is the trace of a touch, a road, a passing from one pair of hands to another.", "quote": "Leather remembers hands" },
+    "s2": { "title": "Felt and warmth", "text": "Felt is not woven — it is pressed. Fibres entangle slowly, under pressure and heat. So do memories.", "quote": "Felt and warmth" },
+    "s3": { "title": "Passing on", "text": "The Kurjun passes from mother to daughter, father to son. Inside it — not only objects. Inside it — a way of life, a silent conversation across time.", "quote": "Passing on" },
+    "s4": { "title": "The weight of things", "text": "Not everything in the bag is heavy. Some objects weigh almost nothing, yet you would never leave them behind.", "quote": "The weight of things" },
+    "s5": { "title": "The thread and the pattern", "text": "A single thread means nothing. Together they form something that cannot be reduced to its parts — a pattern, a story, a life.", "quote": "The thread and the pattern" }
+  },
+  "gallery": {
+    "eyebrow": "Images",
+    "title": "Gallery",
+    "viewAll": "View all"
+  },
+  "about": {
+    "eyebrow": "About the project",
+    "heading": "About the project",
+    "body": "\"Kurjun is a digital space built around the stories of women who hold the threads of our identity. It is not merely an archive of objects, but a ledger of existence carved from the memory of the Tien Shan mountains.\"",
+    "context": "Context",
+    "col1": "This is an archive of women from the Naryn region — an archive of their craft, their experience, and their lives. Not only an archive of objects, but of the people behind them and their words.",
+    "col2": "Each story lives on this site — as memory, text, and image. This site is a directory to the world of these women: an opportunity to find them, listen to them, and learn about them."
+  },
+  "credits": {
+    "heading": "Authors & Acknowledgements",
+    "desc": "Kurjun is a project collecting stories of women craftswomen from the Naryn region. The project was made with their permission and support.",
+    "support": "SUPPORT",
+    "email": "kurzhun@gmail.com",
+    "credits": "Credits"
+  }
+}

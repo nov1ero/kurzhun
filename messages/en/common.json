@@ -1,0 +1,13 @@
+{
+  "title": "Kurjun",
+  "nav": {
+    "home": "Home",
+    "stories": "Stories",
+    "gallery": "Gallery",
+    "about": "About"
+  },
+  "footer": {
+    "left": "Kurjun — A project on tradition and memory",
+    "right": "NARYN, KYRGYZSTAN"
+  }
+}

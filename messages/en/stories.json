@@ -1,0 +1,66 @@
+{
+  "story": {
+    "back": "Back",
+    "readMore": "Read More",
+    "next": "Next story",
+    "prev": "Previous story",
+    "recorded": "Recorded",
+    "contact": "Contact",
+    "video": "Video",
+    "1": {
+      "eyebrow": "Story 01",
+      "title": "Leather remembers hands",
+      "name": "Joldosheva Guldarika",
+      "location": "Kara-Suu, At-Bashy (Naryn)",
+      "date": "31/08/2025",
+      "lead": "There is a faint smell of wool in the air. She sits in front of a vivid shyrdak that has lived forty years but shows no sign of fading. Red and blue patterns weave into pink and green, each separated by sharp triangular borders. To an unfamiliar eye, it is colour and geometry. To Guldarika, it is something else entirely.",
+      "body": "Every scratch is not a defect.\n\nIt is the trace of a touch — a road, a journey, a passing from one pair of hands to another. The material stores history better than words ever could. You can read a Kurjun the way you read a face: by its marks, its worn patches, the places where grip was tightest.\n\nThe craftsmen who stitched the bag knew this. They did not aim for smoothness. They aimed for durability, which is something else entirely — not the absence of change, but the ability to absorb it and remain.",
+      "contactText": "If you'd like to reach out to her",
+      "contactInfo": "Contact number: +996 709 702 775"
+    },
+    "2": {
+      "eyebrow": "Story 02",
+      "title": "Felt and warmth",
+      "name": "Aigul Bekova",
+      "location": "Naryn",
+      "date": "15/09/2025",
+      "lead": "Felt is not woven — it is pressed.",
+      "body": "Felt is not woven. It is pressed.\n\nFibres entangle slowly, under pressure and heat — there is no loom, no shuttle, no rhythm of over and under. The material comes into being through force and closeness. So do memories.\n\nThe felt lining of a Kurjun was not decoration. It was insulation — against cold, against breakage, against loss. The softness was structural. The warmth was intentional.",
+      "contactText": "If you'd like to reach out to her",
+      "contactInfo": "Contact number: —"
+    },
+    "3": {
+      "eyebrow": "Story 03",
+      "title": "Passing on",
+      "name": "Zuura Asanova",
+      "location": "At-Bashy (Naryn)",
+      "date": "22/09/2025",
+      "lead": "The Kurjun passes from mother to daughter, from father to son.",
+      "body": "The Kurjun passes from mother to daughter, from father to son.\n\nInside it — not only objects. Inside it — a way of life, a set of unspoken instructions, a silent conversation across time. To receive a Kurjun is to inherit a form of attention: you learn what deserves to be kept, what deserves to travel, what deserves to arrive.\n\nSome things you are told. Some things you carry.",
+      "contactText": "If you'd like to reach out to her",
+      "contactInfo": "Contact number: —"
+    },
+    "4": {
+      "eyebrow": "Story 04",
+      "title": "The weight of things",
+      "name": "Bubuzada Toktosunova",
+      "location": "Kochkor (Naryn)",
+      "date": "05/10/2025",
+      "lead": "Not everything in the bag is heavy.",
+      "body": "Not everything in the bag is heavy.\n\nSome objects weigh almost nothing — a dried flower, a folded note, a coin worn smooth. Yet these are the last things you would leave behind. Weight is not the measure of value; sometimes the lightest objects are the ones you cross a mountain for.\n\nThe Kurjun does not judge. It holds what you decide to carry, and it keeps it without question.",
+      "contactText": "If you'd like to reach out to her",
+      "contactInfo": "Contact number: —"
+    },
+    "5": {
+      "eyebrow": "Story 05",
+      "title": "The thread and the pattern",
+      "name": "Kalima Ergeshova",
+      "location": "Jumgal (Naryn)",
+      "date": "18/10/2025",
+      "lead": "A single thread means nothing.",
+      "body": "A single thread means nothing.\n\nTogether they form something that cannot be reduced to its parts — a pattern, a logic, a life. The woven textiles carried in a Kurjun were never random. Every colour, every crossing of thread, was a decision. A record.\n\nWhen the pattern repeats across generations, it is not repetition. It is recognition. You see the same form in your grandmother's hands and in your own, and something connects — not just the pattern, but the intention behind it.",
+      "contactText": "If you'd like to reach out to her",
+      "contactInfo": "Contact number: —"
+    }
+  }
+}
