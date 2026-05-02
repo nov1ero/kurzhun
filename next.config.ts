@@ -6,12 +6,14 @@ const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 const nextConfig: NextConfig = {
   eslint: { ignoreDuringBuilds: true },
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  webpack(config: any, { nextRuntime }: { nextRuntime?: string }) {
+  webpack(config: any, { nextRuntime, webpack }: { nextRuntime?: string; webpack: any }) {
     if (nextRuntime === "edge") {
-      // Prevent Node.js globals from leaking into the Edge Runtime bundle.
-      // __dirname is not available in Edge; mock it so any stray reference
-      // gets replaced with "/" at build time instead of failing at runtime.
-      config.node = { ...config.node, __dirname: "mock" };
+      // DefinePlugin replaces __dirname with "/" at AST level during compilation.
+      // This is needed because Vercel Edge Runtime doesn't have __dirname, and
+      // webpack's eval() wrapper scoping causes ReferenceError in strict-mode modules.
+      config.plugins.push(
+        new webpack.DefinePlugin({ __dirname: JSON.stringify("/") })
+      );
     }
     return config;
   },
