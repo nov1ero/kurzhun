@@ -1,6 +1,7 @@
 CLAUDE.md
 *.md
 import-translations.ts
+i18n.js
 
 # dependencies
 node_modules
