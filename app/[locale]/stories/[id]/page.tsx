@@ -101,11 +101,25 @@ export default async function StoryPage({ params }: PageProps) {
         <DashedBar />
 
         <CreditsSection
-          heading={t("credits.heading")}
-          desc={t("credits.desc")}
-          support={t("credits.support")}
-          email={t("credits.email")}
-          credits={t("credits.credits")}
+          // heading={t("credits.heading")}
+          ackHeading={t("credits.ackHeading")}
+          ack1={t("credits.ack1")}
+          ack2={t("credits.ack2")}
+          ack3={t("credits.ack3")}
+          ack4={t("credits.ack4")}
+          creditsHeading={t("credits.creditsHeading")}
+          person1name={t("credits.person1name")}
+          person1bio={t("credits.person1bio")}
+          person2name={t("credits.person2name")}
+          person2bio={t("credits.person2bio")}
+          person2email={t("credits.person2email")}
+          webHeading={t("credits.webHeading")}
+          webDesign={t("credits.webDesign")}
+          webDev={t("credits.webDev")}
+          supportHeading={t("credits.supportHeading")}
+          supportText={t("credits.supportText")}
+          supportEmail={t("credits.supportEmail")}
+          copyright={t("credits.copyright")}
         />
       </main>
     </>

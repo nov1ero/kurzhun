@@ -7,10 +7,10 @@
     "eyebrow": "Traditional craft",
     "caption1": "Each piece holds a story. Each story continues a life.",
     "caption2": "Keeping culture alive through women's hands",
-    "title1": "Stories crafted by women’s hands. ",
+    "title1": "Stories crafted by women’s hands",
     "title2": "",
-    "desc": "shaping lives and keeping",
-    "desc2": "culture alive through Kyrgyz craft"
+    "desc": "Weaving lives, keeping culture alive through Kyrgyz craft ",
+    "desc2": ""
   },
   "intro": {
     "quote": "This is a collection of stories of women craftswomen from the Naryn region. Through their work, they create, teach, and shape everyday life around them.",
@@ -22,9 +22,8 @@
     "p3": "Through what they do, they shape their lives, their communities, and what these practices mean today."
   },
   "stories": {
-    "eyebrow": "From the Kurjun",
     "title": "Stories",
-    "readAll": "View all",
+    "readAll": "Read the stories",
     "s1": { "title": "Leather remembers hands", "text": "Every scratch is not a defect. It is the trace of a touch, a road, a passing from one pair of hands to another.", "quote": "Leather remembers hands" },
     "s2": { "title": "Felt and warmth", "text": "Felt is not woven — it is pressed. Fibres entangle slowly, under pressure and heat. So do memories.", "quote": "Felt and warmth" },
     "s3": { "title": "Passing on", "text": "The Kurjun passes from mother to daughter, father to son. Inside it — not only objects. Inside it — a way of life, a silent conversation across time.", "quote": "Passing on" },
@@ -39,16 +38,30 @@
   "about": {
     "eyebrow": "About the project",
     "heading": "About the project",
-    "body": "\"Kurjun is a digital space built around the stories of women who hold the threads of our identity. It is not merely an archive of objects, but a ledger of existence carved from the memory of the Tien Shan mountains.\"",
+    "body": "\"Kurjun is a digital space carrying the stories of Kyrgyz craftswomen. \n Here, you will find how, through craft, they create, teach, and shape the world around them.\"",
     "context": "Context",
-    "col1": "This is an archive of women from the Naryn region — an archive of their craft, their experience, and their lives. Not only an archive of objects, but of the people behind them and their words.",
-    "col2": "Each story lives on this site — as memory, text, and image. This site is a directory to the world of these women: an opportunity to find them, listen to them, and learn about them."
+    "col1": "Kurjun is the result of a research project about craftswomen from Kyrgyzstan. Here, traditional craft is a space where women create and share, build connections and communities, provide for themselves, and find deep meaning in their making - carrying culture forward through their hands. Their craft is not a fixed tradition; it is something they actively shape. For a period of time, Kyrgyz craft was defined from the outside perspective, often looking at it as a static object, while keeping the craftswomen themself outside of this conversations.",
+    "col2": "While their work was visible, often their voices were not. This platform serves as a response to that. A response to the absence of spaces where craftswomen can speak for themselves about their work, their choices, and their lives. We gathered the stories of craftswomen from the Naryn and Ysyk-Kol regions. They are personal stories, but they reflect something much wider about who we are and what we carry with us."
   },
   "credits": {
     "heading": "Authors & Acknowledgements",
-    "desc": "Kurjun is a project collecting stories of women craftswomen from the Naryn region. The project was made with their permission and support.",
-    "support": "SUPPORT",
-    "email": "kurzhun@gmail.com",
-    "credits": "Credits"
+    "ackHeading": "Acknowledgements",
+    "ack1": "Kurjun was created by Nurkamal Zhetigenova as part of a UTD Youth Initiative Development Project and diploma research project at the University of Central Asia, under the supervision of Elena Kolesova and Anisa Sabiri.",
+    "ack2": "Thanks to the support of the University of Central Asia and the UTD Youth Initiative Development Project, whose belief in student-led ideas helped bring this space to life.",
+    "ack3": "The heart of this project belongs to the women who opened their homes, shared their stories, and trusted us. This space exists because of them.",
+    "ack4": "To my friends and family — thank you for your patience, your encouragement, and for always being close.",
+    "creditsHeading": "Credits",
+    "person1name": "Nurkamal Zhetigenova",
+    "person1bio": "Senior student of Communications and Media at the University of Central Asia and the author and researcher of this project. She was responsible for the concept development, fieldwork, interviews, writing, and all photo and visual materials. Her work focuses on storytelling through visual media and research-based creative projects. This project brings together her interest in women's lived experiences, craft practices, and multimedia storytelling.",
+    "person2name": "Dr Elena Kolesova",
+    "person2bio": "Associate Professor at the University of Central Asia where she teaches Research Methods, Political Communication and Popular Culture in Central Asia and supervises capstone projects. Elena's research crosses cultural studies, media studies, education, cultural anthropology and history. It equally crosses geographical borders from Russian to Japan, on to New Zealand, where she has spent most of her academic career, and finally to Central Asia. She has particular interest in oral history and conducted extensive research about women in creative industries in Central Asia.",
+    "person2email": "elena.kolesova@ucentralasia.org",
+    "webHeading": "Website Production",
+    "webDesign": "Design: dastan.askarbekovv@gmail.com",
+    "webDev": "Development: akyl.cher@gmail.com",
+    "supportHeading": "SUPPORT THE PROJECT",
+    "supportText": "If you would like to support or get in touch:",
+    "supportEmail": "nurkamaljetigenova@gmail.com",
+    "copyright": "All photographs, videos, and visual materials presented on this platform were created as part of this project and may not be used or reproduced without permission."
   }
 }
