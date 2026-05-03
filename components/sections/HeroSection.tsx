@@ -12,14 +12,15 @@ export function HeroSection({ eyebrow, title, desc }: HeroSectionProps) {
       className="relative flex min-h-[400px] w-full items-center border-t border-brown-dark px-4 md:h-[660px] md:px-12"
     >
       {/* Background image */}
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-10 overflow-hidden">
         <Image
           src="/images/main_page/hero.JPG"
           alt=""
           fill
-          className="object-cover"
+          className="object-cover scale-110 translate-x-[5%]"
         />
       </div>
+
 
       {/* Gradient overlay */}
       <div
