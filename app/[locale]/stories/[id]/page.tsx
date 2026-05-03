@@ -161,8 +161,8 @@ export default async function StoryPage({ params }: PageProps) {
               text={t("story.2.text")}
               name={t("story.2.name")}
             />
-            {quoteContact}
             <StoryPhotoSection id={2} photoIndex={5} />
+            {quoteContact}
           </>
         )}
 
@@ -173,16 +173,20 @@ export default async function StoryPage({ params }: PageProps) {
               photoIndex={1}
               textContent={t("story.3.bodyPhoto1")}
             />
-            {quoteContact}
+            {quoteContactOrnOnly}
             <StoryPhotoSection
               id={3}
               photoIndex={2}
-              split
-              reversed
               textContent={t("story.3.bodyPhoto2")}
             />
-            <StoryPhotoSection id={3} photoIndex={3} />
-            {video}
+            <StoryPhotoSection
+              id={3}
+              photoIndex={3}
+              split
+              textContent={t("story.3.bodyPhoto3")}
+            />
+            <StoryPhotoSection id={3} photoIndex={4} />
+            {quoteContact}
           </>
         )}
 
@@ -193,22 +197,33 @@ export default async function StoryPage({ params }: PageProps) {
               photoIndex={1}
               textContent={t("story.4.bodyPhoto1")}
             />
-            <StoryPhotoSection
-              id={4}
-              photoIndex={2}
-              split
-              textContent={t("story.4.bodyPhoto2")}
-            />
             {quoteContactOrnOnly}
             <StoryPhotoSection
               id={4}
-              photoIndex={3}
+              photoIndex={2}
+              textContent={t("story.4.bodyPhoto2")}
+            />
+            <StoryPhotoSection id={4} photoIndex={3} />
+            <StoryPhotoSection
+              id={4}
+              photoIndex={4}
               split
               reversed
               textContent={t("story.4.bodyPhoto3")}
             />
-            <StoryPhotoSection id={4} photoIndex={4} />
-            {quoteContact}
+            <StoryPhotoSection
+              id={4}
+              photoIndex={5}
+              split
+              textContent={t("story.4.bodyPhoto4")}
+            />
+            <StoryPhotoSection
+              id={4}
+              photoIndex={6}
+              textContent={t("story.4.bodyPhoto5")}
+              />
+              {quoteContact}
+              {video}
           </>
         )}
 
@@ -217,24 +232,27 @@ export default async function StoryPage({ params }: PageProps) {
             <StoryPhotoSection
               id={5}
               photoIndex={1}
-              split
               textContent={t("story.5.bodyPhoto1")}
             />
+            {quoteContactOrnOnly}
             <StoryPhotoSection
               id={5}
               photoIndex={2}
-              split
-              reversed
               textContent={t("story.5.bodyPhoto2")}
             />
-            {quoteContact}
+            <StoryPhotoSection id={5} photoIndex={3} />
             <StoryPhotoSection
               id={5}
-              photoIndex={3}
+              photoIndex={4}
+              split
               textContent={t("story.5.bodyPhoto3")}
             />
-            <StoryPhotoSection id={5} photoIndex={4} />
-            {video}
+            <StoryPhotoSection
+              id={5}
+              photoIndex={5}
+              textContent={t("story.5.bodyPhoto1")}
+            />
+            {quoteContact}
           </>
         )}
 
