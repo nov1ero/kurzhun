@@ -24,6 +24,7 @@ export function StoryDescription({ body }: StoryDescriptionProps) {
             <p
               key={i}
               className="text-2xl font-normal leading-[1.3] text-brown-dark"
+              style={{ whiteSpace: "pre-line" }}
             >
               {block}
             </p>

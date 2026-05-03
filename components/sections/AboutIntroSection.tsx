@@ -31,7 +31,7 @@ export function AboutIntroSection({ body }: AboutIntroSectionProps) {
           height={51}
           style={{ filter: "brightness(0) saturate(100%)" }}
         />
-        <p className="text-[32px] font-normal leading-none text-brown-body">
+        <p className="text-[32px] font-normal leading-none text-brown-body" style={{ whiteSpace: "pre-line" }}>
           {body}
         </p>
       </div>

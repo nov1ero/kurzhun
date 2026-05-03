@@ -27,7 +27,7 @@ function TextBlocks({ text }: { text: string }) {
           );
         }
         return (
-          <p key={i} className="text-2xl font-normal leading-none text-brown-dark">
+          <p key={i} className="text-2xl font-normal leading-none text-brown-dark" style={{ whiteSpace: "pre-line" }}>
             {block}
           </p>
         );

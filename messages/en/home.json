@@ -24,11 +24,11 @@
   "stories": {
     "title": "Stories",
     "readAll": "Read the stories",
-    "s1": { "title": "Leather remembers hands", "text": "Every scratch is not a defect. It is the trace of a touch, a road, a passing from one pair of hands to another.", "quote": "Leather remembers hands" },
-    "s2": { "title": "Felt and warmth", "text": "Felt is not woven — it is pressed. Fibres entangle slowly, under pressure and heat. So do memories.", "quote": "Felt and warmth" },
-    "s3": { "title": "Passing on", "text": "The Kurjun passes from mother to daughter, father to son. Inside it — not only objects. Inside it — a way of life, a silent conversation across time.", "quote": "Passing on" },
-    "s4": { "title": "The weight of things", "text": "Not everything in the bag is heavy. Some objects weigh almost nothing, yet you would never leave them behind.", "quote": "The weight of things" },
-    "s5": { "title": "The thread and the pattern", "text": "A single thread means nothing. Together they form something that cannot be reduced to its parts — a pattern, a story, a life.", "quote": "The thread and the pattern" }
+    "s1": { "title": "Joldhosheva Guldarika", "quote": "\"Keeping culture alive through women's hands\"" },
+    "s2": { "title": "Toktosunova Kenjekan", "quote": "\"Every Handmade Piece is a Letter to the Next Generation\"" },
+    "s3": { "title": "Moldalieva Nazira", "quote": "Crafting and Lighting a Way Forward" },
+    "s4": { "title": "Asanbaeva Ryskul", "quote": "Every Stitch, With Love" },
+    "s5": { "title": "Mustapaeva Nurgul", "quote": "Learn. Create. Listen to Your Heart" }
   },
   "gallery": {
     "eyebrow": "Images",
@@ -38,10 +38,10 @@
   "about": {
     "eyebrow": "About the project",
     "heading": "About the project",
-    "body": "\"Kurjun is a digital space carrying the stories of Kyrgyz craftswomen. \n Here, you will find how, through craft, they create, teach, and shape the world around them.\"",
+    "body": "\"Kurjun is a digital space carrying the stories of Kyrgyz craftswomen. \n\n Here, you will find how, through craft, they create, teach, and shape the world around them.\"",
     "context": "Context",
-    "col1": "Kurjun is the result of a research project about craftswomen from Kyrgyzstan. Here, traditional craft is a space where women create and share, build connections and communities, provide for themselves, and find deep meaning in their making - carrying culture forward through their hands. Their craft is not a fixed tradition; it is something they actively shape. For a period of time, Kyrgyz craft was defined from the outside perspective, often looking at it as a static object, while keeping the craftswomen themself outside of this conversations.",
-    "col2": "While their work was visible, often their voices were not. This platform serves as a response to that. A response to the absence of spaces where craftswomen can speak for themselves about their work, their choices, and their lives. We gathered the stories of craftswomen from the Naryn and Ysyk-Kol regions. They are personal stories, but they reflect something much wider about who we are and what we carry with us."
+    "col1": "Kurjun is the result of a research project about craftswomen from Kyrgyzstan. \nHere, traditional craft is a space where women create and share, build connections and communities, provide for themselves, and find deep meaning in their making - carrying culture forward through their hands. Their craft is not a fixed tradition; it is something they actively shape. \nFor a period of time, Kyrgyz craft was defined from the outside perspective, often looking at it as a static object, while keeping the craftswomen themself outside of this conversations.",
+    "col2": "While their work was visible, often their voices were not. This platform serves as a response to that. \nA response to the absence of spaces where craftswomen can speak for themselves about their work, their choices, and their lives. We gathered the stories of craftswomen from the Naryn and Ysyk-Kol regions. They are personal stories, but they reflect something much wider about who we are and what we carry with us."
   },
   "credits": {
     "heading": "Authors & Acknowledgements",

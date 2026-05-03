@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { useRouter } from "@/i18n/navigation";
-import { Placeholder } from "@/components/ui/Placeholder";
 
 interface StoryCardData {
   id: number;
@@ -67,11 +67,15 @@ export function StoriesCarousel({ stories }: StoriesCarouselProps) {
           onClick={() => handleCardClick(story.id)}
           className="flex h-[344px] w-[336px] shrink-0 cursor-pointer flex-col gap-5 border border-b-0 border-brown-dark bg-cream p-6 transition-colors hover:bg-tan"
         >
-          {/* Image placeholder */}
-          <Placeholder
-            label={`story-${story.id}.jpg`}
-            className="h-[176px] w-[288px] shrink-0"
-          />
+          {/* Hero image */}
+          <div className="relative h-[176px] w-[288px] shrink-0 overflow-hidden">
+            <Image
+              src={`/images/stories/story${story.id}/story${story.id}_hero.JPG`}
+              alt=""
+              fill
+              className="object-cover"
+            />
+          </div>
 
           {/* Content */}
           <div className="flex flex-col gap-4">

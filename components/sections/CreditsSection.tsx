@@ -55,10 +55,10 @@ export function CreditsSection({
             {ackHeading}
           </p>
           <div className="flex max-w-[784px] flex-col gap-5">
-            <p className="text-base font-normal leading-relaxed text-cream">{ack1}</p>
-            <p className="text-base font-normal leading-relaxed text-cream">{ack2}</p>
-            <p className="text-base font-normal leading-relaxed text-cream">{ack3}</p>
-            <p className="text-base font-normal leading-relaxed text-cream">{ack4}</p>
+            <p className="text-base font-normal leading-relaxed text-cream" style={{ whiteSpace: "pre-line" }}>{ack1}</p>
+            <p className="text-base font-normal leading-relaxed text-cream" style={{ whiteSpace: "pre-line" }}>{ack2}</p>
+            <p className="text-base font-normal leading-relaxed text-cream" style={{ whiteSpace: "pre-line" }}>{ack3}</p>
+            <p className="text-base font-normal leading-relaxed text-cream" style={{ whiteSpace: "pre-line" }}>{ack4}</p>
           </div>
         </div>
 
@@ -70,11 +70,11 @@ export function CreditsSection({
           <div className="grid grid-cols-2 gap-16">
             <div className="flex flex-col gap-3">
               <p className="text-base font-bold text-cream">{person1name}</p>
-              <p className="text-base font-normal leading-relaxed text-cream">{person1bio}</p>
+              <p className="text-base font-normal leading-relaxed text-cream" style={{ whiteSpace: "pre-line" }}>{person1bio}</p>
             </div>
             <div className="flex flex-col gap-3">
               <p className="text-base font-bold text-cream">{person2name}</p>
-              <p className="text-base font-normal leading-relaxed text-cream">{person2bio}</p>
+              <p className="text-base font-normal leading-relaxed text-cream" style={{ whiteSpace: "pre-line" }}>{person2bio}</p>
               <a
                 href={`mailto:${person2email}`}
                 className="text-base font-normal text-cream/70 underline-offset-2 hover:underline"
@@ -91,15 +91,15 @@ export function CreditsSection({
             <p className="text-base font-bold uppercase tracking-[1.2px] text-cream">
               {webHeading}
             </p>
-            <p className="text-base font-normal leading-relaxed text-cream">{webDesign}</p>
-            <p className="text-base font-normal leading-relaxed text-cream">{webDev}</p>
+            <p className="text-base font-normal leading-relaxed text-cream" style={{ whiteSpace: "pre-line" }}>{webDesign}</p>
+            <p className="text-base font-normal leading-relaxed text-cream" style={{ whiteSpace: "pre-line" }}>{webDev}</p>
           </div>
 
           <div className="flex flex-col gap-3">
             <p className="text-base font-bold uppercase tracking-[1.2px] text-cream">
               {supportHeading}
             </p>
-            <p className="text-base font-normal leading-relaxed text-cream">{supportText}</p>
+            <p className="text-base font-normal leading-relaxed text-cream" style={{ whiteSpace: "pre-line" }}>{supportText}</p>
             <a
               href={`mailto:${supportEmail}`}
               className="text-base font-normal text-cream underline-offset-2 hover:underline"
