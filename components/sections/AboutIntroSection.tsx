@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { OrnamentSide } from "@/components/ui/OrnamentSide";
-import { Placeholder } from "@/components/ui/Placeholder";
 
 interface AboutIntroSectionProps {
   body: string;
@@ -12,8 +11,13 @@ export function AboutIntroSection({ body }: AboutIntroSectionProps) {
       {/* Images column */}
       <div className="flex h-full shrink-0 items-center gap-12 py-0">
         {/* Main photo */}
-        <div className="flex h-full items-center py-[120px]">
-          <Placeholder label="DSC07278.jpg" className="h-[420px] w-[420px]" />
+        <div className="relative h-[420px] w-[420px] shrink-0">
+          <Image
+            src="/images/main_page/main_1.JPG"
+            alt=""
+            fill
+            className="object-cover object-left"
+          />
         </div>
 
         {/* Side ornament strip */}

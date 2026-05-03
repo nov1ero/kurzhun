@@ -1,4 +1,4 @@
-import { Placeholder } from "@/components/ui/Placeholder";
+import Image from "next/image";
 
 interface HeroSectionProps {
   eyebrow: string;
@@ -14,7 +14,12 @@ export function HeroSection({ eyebrow, title, desc }: HeroSectionProps) {
     >
       {/* Background image placeholder */}
       <div className="absolute inset-0 -z-10">
-        <Placeholder label="DSC09759.jpg" className="h-full w-full" />
+        <Image
+              src={`/images/main_page/hero.JPG`}
+              alt=""
+              fill
+              className="object-cover"
+            />
       </div>
 
       {/* Gradient overlay */}
