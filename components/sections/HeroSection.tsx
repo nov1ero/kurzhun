@@ -9,17 +9,16 @@ interface HeroSectionProps {
 export function HeroSection({ eyebrow, title, desc }: HeroSectionProps) {
   return (
     <section
-      className="relative flex h-[660px] w-full items-center border-t border-brown-dark"
-      style={{ padding: "0 48px" }}
+      className="relative flex min-h-[400px] w-full items-center border-t border-brown-dark px-4 md:h-[660px] md:px-12"
     >
-      {/* Background image placeholder */}
+      {/* Background image */}
       <div className="absolute inset-0 -z-10">
         <Image
-              src={`/images/main_page/hero.JPG`}
-              alt=""
-              fill
-              className="object-cover"
-            />
+          src="/images/main_page/hero.JPG"
+          alt=""
+          fill
+          className="object-cover"
+        />
       </div>
 
       {/* Gradient overlay */}
@@ -32,16 +31,12 @@ export function HeroSection({ eyebrow, title, desc }: HeroSectionProps) {
         }}
       />
 
-      {/* Heading column: padding 120px top/bottom, content fills 420px */}
-      <div
-        className="relative z-10 flex h-full min-w-[600px] flex-1 flex-col items-start justify-between py-[120px]"
-      >
-        {/* Eyebrow */}
+      {/* Heading column */}
+      <div className="relative z-10 flex h-full flex-1 flex-col items-start justify-between py-12 md:py-[120px]">
         <p className="text-base font-bold uppercase leading-none text-white">
           {eyebrow}
         </p>
 
-        {/* Main heading — wraps at ~675px into 3 lines */}
         <svg width="0" height="0" style={{ position: "absolute" }} aria-hidden="true">
           <defs>
             <filter id="grain-hero-text">
@@ -51,13 +46,12 @@ export function HeroSection({ eyebrow, title, desc }: HeroSectionProps) {
           </defs>
         </svg>
         <h1
-          className="font-mono text-[86px] font-bold uppercase leading-none text-white"
+          className="font-mono text-[40px] font-bold uppercase leading-none text-white md:text-[64px] lg:text-[86px]"
           style={{ maxWidth: 675, filter: "url(#grain-hero-text)" }}
         >
           {title}
         </h1>
 
-        {/* Description */}
         <p className="text-base font-bold uppercase leading-none text-white" style={{ whiteSpace: "pre-line" }}>
           {desc}
         </p>

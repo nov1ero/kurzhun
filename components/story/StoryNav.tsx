@@ -38,30 +38,30 @@ export function StoryNav({
   mainPage,
 }: StoryNavProps) {
   return (
-    <nav className="flex h-[127px] w-full">
+    <nav className="flex h-auto w-full md:h-[127px]">
       {/* Left — prev story or home */}
       <div className="flex h-full w-1/2">
         {prevId !== null ? (
           <Link
             href={`/stories/${prevId}` as "/"}
-            className="flex h-full w-full flex-col justify-center border border-brown-dark bg-cream px-16 transition-colors hover:bg-tan"
+            className="flex h-full w-full flex-col justify-center border border-brown-dark bg-cream px-4 py-5 transition-colors hover:bg-tan md:px-16 md:py-0"
           >
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-3 md:gap-6">
               <ArrowLeft />
               <span className="text-base font-bold uppercase leading-none text-brown-dark">{prevLabel}</span>
             </div>
-            <p className="text-2xl font-bold leading-8 text-brown-dark">{prevTitle}</p>
+            <p className="text-xl font-bold leading-snug text-brown-dark md:text-2xl md:leading-8">{prevTitle}</p>
           </Link>
         ) : (
           <Link
             href="/"
-            className="flex h-full w-full flex-col justify-center border border-brown-dark bg-cream px-16 transition-colors hover:bg-tan"
+            className="flex h-full w-full flex-col justify-center border border-brown-dark bg-cream px-4 py-5 transition-colors hover:bg-tan md:px-16 md:py-0"
           >
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-3 md:gap-6">
               <ArrowLeft />
               <span className="text-base font-bold uppercase leading-none text-brown-dark">{homeLabel}</span>
             </div>
-            <p className="text-2xl font-bold leading-8 text-brown-dark">{mainPage}</p>
+            <p className="text-xl font-bold leading-snug text-brown-dark md:text-2xl md:leading-8">{mainPage}</p>
           </Link>
         )}
       </div>
@@ -71,24 +71,24 @@ export function StoryNav({
         {nextId !== null ? (
           <Link
             href={`/stories/${nextId}` as "/"}
-            className="flex h-full w-full flex-col items-end justify-center border border-brown-dark bg-cream px-16 transition-colors hover:bg-tan"
+            className="flex h-full w-full flex-col items-end justify-center border border-brown-dark bg-cream px-4 py-5 transition-colors hover:bg-tan md:px-16 md:py-0"
           >
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-3 md:gap-6">
               <span className="text-base font-bold uppercase leading-none text-brown-dark">{nextLabel}</span>
               <ArrowRight />
             </div>
-            <p className="text-2xl font-bold leading-8 text-brown-dark">{nextTitle}</p>
+            <p className="text-xl font-bold leading-snug text-brown-dark md:text-2xl md:leading-8">{nextTitle}</p>
           </Link>
         ) : (
           <Link
             href="/"
-            className="flex h-full w-full flex-col items-end justify-center border border-brown-dark bg-cream px-16 transition-colors hover:bg-tan"
+            className="flex h-full w-full flex-col items-end justify-center border border-brown-dark bg-cream px-4 py-5 transition-colors hover:bg-tan md:px-16 md:py-0"
           >
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-3 md:gap-6">
               <span className="text-base font-bold uppercase leading-none text-brown-dark">{homeLabel}</span>
               <ArrowRight />
             </div>
-            <p className="text-2xl font-bold leading-8 text-brown-dark">{mainPage}</p>
+            <p className="text-xl font-bold leading-snug text-brown-dark md:text-2xl md:leading-8">{mainPage}</p>
           </Link>
         )}
       </div>

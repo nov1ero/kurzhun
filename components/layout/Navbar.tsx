@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { Link, usePathname } from "@/i18n/navigation";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
@@ -15,6 +16,7 @@ interface NavbarProps {
 
 export function Navbar({ navHome, navStories, navGallery, navAbout }: NavbarProps) {
   const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const links = [
     { href: "/", label: navHome },
@@ -40,7 +42,7 @@ export function Navbar({ navHome, navStories, navGallery, navAbout }: NavbarProp
         {/* Logo */}
         <Link
           href="/"
-          className="flex h-11 w-[182px] shrink-0 items-center px-6 pl-12"
+          className="flex h-11 shrink-0 items-center pl-4 pr-3 md:w-[182px] md:px-6 md:pl-12"
           aria-label="Курjun — Home"
         >
           <Image
@@ -52,8 +54,8 @@ export function Navbar({ navHome, navStories, navGallery, navAbout }: NavbarProp
           />
         </Link>
 
-        {/* Menu items */}
-        <div className="flex h-11 flex-1 items-center border-l border-brown-dark">
+        {/* Desktop menu items */}
+        <div className="hidden h-11 flex-1 items-center border-l border-brown-dark md:flex">
           {links.map(({ href, label }) => (
             <Link
               key={href}
@@ -68,11 +70,42 @@ export function Navbar({ navHome, navStories, navGallery, navAbout }: NavbarProp
           ))}
         </div>
 
+        {/* Mobile hamburger */}
+        <button
+          className="flex h-11 flex-1 items-center justify-end border-l border-brown-dark px-4 md:hidden"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Menu"
+          aria-expanded={menuOpen}
+        >
+          <span className="text-2xl leading-none text-brown-dark">
+            {menuOpen ? "×" : "≡"}
+          </span>
+        </button>
+
         {/* Language switcher */}
-        <div className="flex h-11 items-center justify-end border-l border-brown-dark px-6">
+        <div className="flex h-11 items-center justify-end border-l border-brown-dark px-4 md:px-6">
           <LanguageSwitcher />
         </div>
       </nav>
+
+      {/* Mobile dropdown */}
+      {menuOpen && (
+        <div className="flex flex-col border-t border-brown-dark bg-cream md:hidden">
+          {links.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href as "/"}
+              onClick={() => setMenuOpen(false)}
+              className={cn(
+                "flex h-11 items-center border-b border-brown-dark px-4 text-base font-bold uppercase text-brown-dark transition-colors hover:bg-tan",
+                isActive(href) && "bg-tan"
+              )}
+            >
+              {label}
+            </Link>
+          ))}
+        </div>
+      )}
     </header>
   );
 }

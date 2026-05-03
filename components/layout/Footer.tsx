@@ -9,7 +9,7 @@ export async function Footer() {
   const t = await getTranslations();
 
   return (
-    <footer className="flex h-[44px] w-full items-center bg-brown-dark px-12">
+    <footer className="flex h-[44px] w-full items-center bg-brown-dark px-4 md:px-12">
       {/* Left text */}
       <div className="flex flex-1 items-center">
         <span className="text-base font-bold uppercase text-cream">

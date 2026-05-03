@@ -8,7 +8,7 @@ export function StoryDescription({ body }: StoryDescriptionProps) {
   const blocks = body.split("\n\n").map((b) => b.trim()).filter(Boolean);
 
   return (
-    <section className="flex w-full flex-col items-center justify-center gap-[53px] bg-cream px-12 py-[120px]">
+    <section className="flex w-full flex-col items-center justify-center gap-[53px] bg-cream px-4 py-12 md:px-12 md:py-[120px]">
       <div className="flex w-full max-w-[784px] flex-col gap-[53px]">
         {blocks.map((block, i) => {
           const isQuote = block.startsWith('"') || block.startsWith("“");

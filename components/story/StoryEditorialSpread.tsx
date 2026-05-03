@@ -20,9 +20,9 @@ export function StoryEditorialSpread({
   lead,
 }: StoryEditorialSpreadProps) {
   return (
-    <section className="relative flex h-[642px] w-full border-y border-brown-dark">
-      {/* Left: Hero image */}
-      <div className="relative h-full w-1/2 overflow-hidden bg-cream">
+    <section className="relative flex h-auto w-full flex-col border-y border-brown-dark md:h-[642px] md:flex-row">
+      {/* Hero image */}
+      <div className="relative h-[300px] w-full overflow-hidden bg-cream md:h-full md:w-1/2">
         <Image
           src={`/images/stories/story${id}/story${id}_hero.JPG`}
           alt=""
@@ -31,8 +31,8 @@ export function StoryEditorialSpread({
         />
       </div>
 
-      {/* Right: Metadata */}
-      <div className="flex h-full w-1/2 flex-col justify-center border-l border-brown-dark bg-cream px-20 py-[120px]">
+      {/* Metadata */}
+      <div className="flex h-full w-full flex-col justify-center border-l border-brown-dark bg-cream px-6 py-10 md:w-1/2 md:px-20 md:py-[120px]">
         <div className="flex flex-col gap-8">
           {/* Top block */}
           <div className="flex flex-col gap-4 border-b border-black pb-6">
@@ -40,7 +40,7 @@ export function StoryEditorialSpread({
               {recorded} {date}
             </p>
             <h1
-              className="text-[60px] font-bold leading-[56px] text-brown-dark"
+              className="text-[32px] font-bold leading-tight text-brown-dark md:text-[60px] md:leading-[56px]"
               style={{ letterSpacing: "-1.8px" }}
             >
               {title}

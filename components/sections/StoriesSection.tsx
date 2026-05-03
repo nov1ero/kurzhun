@@ -30,8 +30,8 @@ export function StoriesSection({ eyebrow, readAll, stories }: StoriesSectionProp
   return (
     <section id="stories" className="w-full border-t border-brown-dark bg-cream">
       {/* Header bar */}
-      <div className="flex h-[120px] items-center px-12">
-        <div className="flex w-full items-center justify-between gap-[72px]">
+      <div className="flex h-auto items-center px-4 py-6 md:h-[120px] md:px-12 md:py-0">
+        <div className="flex w-full items-center justify-between gap-4 md:gap-[72px]">
           <span className="text-[32px] font-bold leading-none text-rust">
             {eyebrow}
           </span>
@@ -66,7 +66,7 @@ export function StoriesSection({ eyebrow, readAll, stories }: StoriesSectionProp
             >
               ×
             </button>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
               {stories.map((story) => (
                 <article
                   key={story.id}

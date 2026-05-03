@@ -1,5 +1,4 @@
 interface CreditsSectionProps {
-  // heading: string;
   ackHeading: string;
   ack1: string;
   ack2: string;
@@ -21,7 +20,6 @@ interface CreditsSectionProps {
 }
 
 export function CreditsSection({
-  // heading,
   ackHeading,
   ack1,
   ack2,
@@ -42,19 +40,15 @@ export function CreditsSection({
   copyright,
 }: CreditsSectionProps) {
   return (
-    <section id="about" className="w-full bg-brown-dark px-16 py-24">
-      <div className="mx-auto flex w-full max-w-[1312px] flex-col gap-16">
-
-        {/* Heading */}
-        {/* <h2 className="text-[32px] font-bold leading-10 text-cream">{heading}</h2> */}
+    <section id="about" className="w-full bg-brown-dark px-4 py-12 md:px-16 md:py-24">
+      <div className="mx-auto flex w-full max-w-[1312px] flex-col gap-12 md:gap-16">
 
         {/* Acknowledgements */}
-        {/* <div className="flex flex-col gap-6 border-t border-cream/20 pt-12"> */}
         <div className="flex flex-col gap-6 border-cream/20">
           <p className="text-base font-bold uppercase tracking-[1.2px] text-cream">
             {ackHeading}
           </p>
-          <div className="flex max-w-[784px] flex-col gap-5">
+          <div className="flex flex-col gap-5">
             <p className="text-base font-normal leading-relaxed text-cream" style={{ whiteSpace: "pre-line" }}>{ack1}</p>
             <p className="text-base font-normal leading-relaxed text-cream" style={{ whiteSpace: "pre-line" }}>{ack2}</p>
             <p className="text-base font-normal leading-relaxed text-cream" style={{ whiteSpace: "pre-line" }}>{ack3}</p>
@@ -63,11 +57,11 @@ export function CreditsSection({
         </div>
 
         {/* Author bios */}
-        <div className="flex flex-col gap-8 border-t border-cream/20 pt-12">
+        <div className="flex flex-col gap-8 border-t border-cream/20 pt-10 md:pt-12">
           <p className="text-base font-bold uppercase tracking-[1.2px] text-cream">
             {creditsHeading}
           </p>
-          <div className="grid grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-16">
             <div className="flex flex-col gap-3">
               <p className="text-base font-bold text-cream">{person1name}</p>
               <p className="text-base font-normal leading-relaxed text-cream" style={{ whiteSpace: "pre-line" }}>{person1bio}</p>
@@ -86,7 +80,7 @@ export function CreditsSection({
         </div>
 
         {/* Website / Support / Copyright */}
-        <div className="grid grid-cols-3 gap-16 border-t border-cream/20 pt-12">
+        <div className="grid grid-cols-1 gap-8 border-t border-cream/20 pt-10 md:grid-cols-3 md:gap-16 md:pt-12">
           <div className="flex flex-col gap-3">
             <p className="text-base font-bold uppercase tracking-[1.2px] text-cream">
               {webHeading}

@@ -55,7 +55,7 @@ export function GallerySection({ eyebrow, viewAll }: GallerySectionProps) {
 
   return (
     <section id="gallery" className="w-full border-t border-brown-dark bg-tan">
-      <div className="px-12 py-16">
+      <div className="px-4 py-10 md:px-12 md:py-16">
         <div className="mb-8 flex items-center justify-between">
           <h2 className="text-[32px] font-bold text-rust">{eyebrow}</h2>
           <button
@@ -82,7 +82,7 @@ export function GallerySection({ eyebrow, viewAll }: GallerySectionProps) {
               onMouseEnter={() => handleMouseEnter(img)}
               className="shrink-0 focus-visible:outline-none"
             >
-              <div className="relative h-[380px] w-[380px] overflow-hidden">
+              <div className="relative h-[240px] w-[240px] overflow-hidden md:h-[380px] md:w-[380px]">
                 <Image
                   src={`/images/gallery/${img}`}
                   alt=""
@@ -113,7 +113,7 @@ export function GallerySection({ eyebrow, viewAll }: GallerySectionProps) {
             >
               ×
             </button>
-            <div className="grid grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
               {GALLERY_IMAGES.map((img, i) => (
                 <button
                   key={i}

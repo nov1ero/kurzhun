@@ -15,7 +15,7 @@ function TextBlocks({ text }: { text: string }) {
           return (
             <blockquote
               key={i}
-              className="border-l-4 border-olive-dark pl-12 text-2xl font-normal italic leading-none text-brown-dark"
+              className="border-l-4 border-olive-dark pl-6 text-2xl font-normal italic leading-none text-brown-dark md:pl-12"
             >
               <InlineText text={block} />
             </blockquote>
@@ -33,7 +33,7 @@ function TextBlocks({ text }: { text: string }) {
 
 export function StoryTextSection({ text, name }: StoryTextSectionProps) {
   return (
-    <section className="flex w-full flex-col bg-cream px-12 py-16">
+    <section className="flex w-full flex-col bg-cream px-4 py-10 md:px-12 md:py-16">
       <div className="flex w-full flex-col gap-12">
         <TextBlocks text={text} />
         {name && (
