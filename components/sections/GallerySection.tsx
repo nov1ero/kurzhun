@@ -2,7 +2,6 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
-import { Link } from "@/i18n/navigation";
 
 const GALLERY_IMAGES = Array.from({ length: 22 }, (_, i) => `gallery_${i + 1}.JPG`);
 
@@ -13,6 +12,7 @@ interface GallerySectionProps {
 
 export function GallerySection({ eyebrow, viewAll }: GallerySectionProps) {
   const [selected, setSelected] = useState<number | null>(null);
+  const [showModal, setShowModal] = useState(false);
 
   const trackRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
@@ -58,12 +58,12 @@ export function GallerySection({ eyebrow, viewAll }: GallerySectionProps) {
       <div className="px-12 py-16">
         <div className="mb-8 flex items-center justify-between">
           <h2 className="text-[32px] font-bold text-rust">{eyebrow}</h2>
-          <Link
-            href="/#gallery"
-            className="border-b-2 border-rust px-3 py-2.5 text-2xl font-bold text-brown-body"
+          <button
+            onClick={() => setShowModal(true)}
+            className="cursor-pointer border-b-2 border-rust px-3 py-2.5 text-2xl font-bold text-brown-body transition-colors hover:text-rust"
           >
             {viewAll}
-          </Link>
+          </button>
         </div>
 
         <div
@@ -87,7 +87,7 @@ export function GallerySection({ eyebrow, viewAll }: GallerySectionProps) {
                   src={`/images/gallery/${img}`}
                   alt=""
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-300 hover:scale-105"
                   draggable={false}
                 />
               </div>
@@ -96,9 +96,50 @@ export function GallerySection({ eyebrow, viewAll }: GallerySectionProps) {
         </div>
       </div>
 
+      {/* Gallery modal */}
+      {showModal && (
+        <div
+          className="fixed inset-0 z-50 overflow-y-auto bg-black/90"
+          onClick={() => setShowModal(false)}
+        >
+          <div
+            className="relative mx-auto max-w-7xl px-8 py-20"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute right-8 top-6 text-4xl leading-none text-white"
+              aria-label="Close"
+            >
+              ×
+            </button>
+            <div className="grid grid-cols-4 gap-3">
+              {GALLERY_IMAGES.map((img, i) => (
+                <button
+                  key={i}
+                  onClick={() => setSelected(i)}
+                  onMouseEnter={() => handleMouseEnter(img)}
+                  className="overflow-hidden focus-visible:outline-none"
+                >
+                  <div className="relative aspect-square overflow-hidden">
+                    <Image
+                      src={`/images/gallery/${img}`}
+                      alt=""
+                      fill
+                      className="object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Lightbox — above modal */}
       {selected !== null && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80"
           onClick={() => setSelected(null)}
         >
           <div
