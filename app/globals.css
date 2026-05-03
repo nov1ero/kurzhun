@@ -33,6 +33,10 @@
     overflow-x: hidden;
   }
 
+  [data-locale="kg"] {
+    --font-mono: var(--font-pt-mono), "Courier New", monospace;
+  }
+
   body {
     background-color: var(--color-cream);
     color: var(--color-brown-body);

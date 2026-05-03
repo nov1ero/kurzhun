@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Anonymous_Pro } from "next/font/google";
+import { Anonymous_Pro, PT_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -11,6 +11,12 @@ const anonymousPro = Anonymous_Pro({
   weight: ["400", "700"],
   style: ["normal", "italic"],
   variable: "--font-anonymous-pro",
+});
+
+const ptMono = PT_Mono({
+  subsets: ["latin", "cyrillic"],
+  weight: ["400"],
+  variable: "--font-pt-mono",
 });
 
 export const metadata: Metadata = {
@@ -33,8 +39,10 @@ export default async function LocaleLayout({
 
   const messages = await getMessages();
 
+  const fontClass = `${anonymousPro.variable} ${ptMono.variable}`;
+
   return (
-    <html lang={locale} className={anonymousPro.variable}>
+    <html lang={locale} data-locale={locale} className={fontClass}>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
