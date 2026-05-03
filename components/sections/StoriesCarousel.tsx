@@ -70,7 +70,7 @@ export function StoriesCarousel({ stories }: StoriesCarouselProps) {
           {/* Hero image */}
           <div className="relative h-[176px] w-[288px] shrink-0 overflow-hidden">
             <Image
-              src={`/images/stories/story${story.id}/story${story.id}_hero.JPG`}
+              src={`/images/stories/story${story.id}/story${story.id}_card.JPG`}
               alt=""
               fill
               className="object-cover"
