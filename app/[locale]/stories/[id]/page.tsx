@@ -55,6 +55,38 @@ export default async function StoryPage({ params }: PageProps) {
 
   const videoCaption = `${t(`story.${numId}.name`)} · ${t(`story.${numId}.location`)} · ${t(`story.${numId}.date`)}`;
 
+  const quoteContactOrnOnly = <StoryQuoteContact />;
+
+  const quoteContact = (
+    <StoryQuoteContact
+      showContact
+      contactText={t(`story.${numId}.contactText`)}
+      contactInfo={t(`story.${numId}.contactInfo`)}
+    />
+  );
+
+  const nav = (
+    <StoryNav
+      prevId={prevId}
+      nextId={nextId}
+      prevTitle={prevId ? t(`story.${prevId}.title`) : ""}
+      nextTitle={nextId ? t(`story.${nextId}.title`) : ""}
+      prevLabel={t("story.prev")}
+      nextLabel={t("story.next")}
+      homeLabel={t("nav.home")}
+      mainPage={"Main Page"}
+    />
+  );
+
+  const video = (
+    <StoryVideoSection
+      videoUrl={t(`story.${numId}.videoUrl`)}
+      caption={videoCaption}
+      videoLabel={t("story.video")}
+    />
+  );
+
+
   return (
     <>
       <Navbar
@@ -73,30 +105,128 @@ export default async function StoryPage({ params }: PageProps) {
           location={t(`story.${numId}.location`)}
           lead={t(`story.${numId}.lead`)}
         />
-        <StoryDescription body={t(`story.${numId}.body`)} />
-        <StoryPhotoSection id={numId} photoIndex={1} />
-        <StoryPhotoSection id={numId} photoIndex={2} split />
+        <StoryDescription body={t(`story.${numId}.bodyMain`)} />
 
-        <StoryQuoteContact
-          contactText={t(`story.${numId}.contactText`)}
-          contactInfo={t(`story.${numId}.contactInfo`)}
-        />
+        {numId === 1 && (
+          <>
+            <StoryPhotoSection
+              id={1}
+              photoIndex={1}
+              textContent={t("story.1.bodyPhoto1")}
+            />
+            <StoryPhotoSection
+              id={1}
+              photoIndex={2}
+              split
+              textContent={t("story.1.bodyPhoto2")}
+            />
+            {quoteContactOrnOnly}
+            <StoryPhotoSection
+              id={1}
+              photoIndex={3}
+              split
+              reversed
+              textContent={t("story.1.bodyPhoto3")}
+              featuredQuote={t("story.1.photo3FeaturedQuote")}
+              featuredName={t("story.1.name")}
+            />
+            <StoryPhotoSection id={1} photoIndex={4} />
+            {quoteContact}
+            {video}
+          </>
+        )}
 
-        <StoryVideoSection
-          caption={videoCaption}
-          videoLabel={t("story.video")}
-        />
+        {numId === 2 && (
+          <>
+            <StoryPhotoSection
+              id={2}
+              photoIndex={1}
+              split
+              textContent={t("story.2.bodyPhoto1")}
+            />
+            <StoryPhotoSection
+              id={2}
+              photoIndex={2}
+              textContent={t("story.2.bodyPhoto2")}
+            />
+            {quoteContact}
+            <StoryPhotoSection id={2} photoIndex={3} />
+          </>
+        )}
 
-        <StoryNav
-          prevId={prevId}
-          nextId={nextId}
-          prevTitle={prevId ? t(`story.${prevId}.title`) : ""}
-          nextTitle={nextId ? t(`story.${nextId}.title`) : ""}
-          prevLabel={t("story.prev")}
-          nextLabel={t("story.next")}
-          homeLabel={t("nav.home")}
-          mainPage={"Main Page"}
-        />
+        {numId === 3 && (
+          <>
+            <StoryPhotoSection
+              id={3}
+              photoIndex={1}
+              textContent={t("story.3.bodyPhoto1")}
+            />
+            {quoteContact}
+            <StoryPhotoSection
+              id={3}
+              photoIndex={2}
+              split
+              reversed
+              textContent={t("story.3.bodyPhoto2")}
+            />
+            <StoryPhotoSection id={3} photoIndex={3} />
+            {video}
+          </>
+        )}
+
+        {numId === 4 && (
+          <>
+            <StoryPhotoSection
+              id={4}
+              photoIndex={1}
+              textContent={t("story.4.bodyPhoto1")}
+            />
+            <StoryPhotoSection
+              id={4}
+              photoIndex={2}
+              split
+              textContent={t("story.4.bodyPhoto2")}
+            />
+            {quoteContactOrnOnly}
+            <StoryPhotoSection
+              id={4}
+              photoIndex={3}
+              split
+              reversed
+              textContent={t("story.4.bodyPhoto3")}
+            />
+            <StoryPhotoSection id={4} photoIndex={4} />
+            {quoteContact}
+          </>
+        )}
+
+        {numId === 5 && (
+          <>
+            <StoryPhotoSection
+              id={5}
+              photoIndex={1}
+              split
+              textContent={t("story.5.bodyPhoto1")}
+            />
+            <StoryPhotoSection
+              id={5}
+              photoIndex={2}
+              split
+              reversed
+              textContent={t("story.5.bodyPhoto2")}
+            />
+            {quoteContact}
+            <StoryPhotoSection
+              id={5}
+              photoIndex={3}
+              textContent={t("story.5.bodyPhoto3")}
+            />
+            <StoryPhotoSection id={5} photoIndex={4} />
+            {video}
+          </>
+        )}
+
+        {nav}
 
         <DashedBar />
 

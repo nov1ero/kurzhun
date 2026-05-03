@@ -1,4 +1,4 @@
-import { Placeholder } from "@/components/ui/Placeholder";
+import Image from "next/image";
 
 interface StoryEditorialSpreadProps {
   id: number;
@@ -23,9 +23,11 @@ export function StoryEditorialSpread({
     <section className="relative flex h-[642px] w-full border-y border-brown-dark">
       {/* Left: Hero image */}
       <div className="relative h-full w-1/2 overflow-hidden bg-cream">
-        <Placeholder
-          label={`Story ${id} hero image`}
-          className="h-full w-full"
+        <Image
+          src={`/images/stories/story${id}/story${id}_hero.JPG`}
+          alt=""
+          fill
+          className="object-cover"
         />
       </div>
 

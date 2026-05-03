@@ -1,51 +1,95 @@
-import { Placeholder } from "@/components/ui/Placeholder";
+import Image from "next/image";
 
 interface StoryPhotoSectionProps {
   id: number;
   photoIndex: number;
-  caption?: string;
+  textContent?: string;
   split?: boolean;
-  splitCaption?: string;
+  reversed?: boolean;
+  featuredQuote?: string;
+  featuredName?: string;
+}
+
+function TextBlocks({ text }: { text: string }) {
+  const blocks = text.split("\n\n").filter(Boolean);
+  return (
+    <>
+      {blocks.map((block, i) => {
+        const isQuote = block.startsWith('"') || block.startsWith("“");
+        if (isQuote) {
+          return (
+            <blockquote
+              key={i}
+              className="border-l-4 border-olive-dark pl-12 text-2xl font-normal italic leading-none text-brown-dark"
+            >
+              {block}
+            </blockquote>
+          );
+        }
+        return (
+          <p key={i} className="text-2xl font-normal leading-none text-brown-dark">
+            {block}
+          </p>
+        );
+      })}
+    </>
+  );
 }
 
 export function StoryPhotoSection({
   id,
   photoIndex,
-  caption,
+  textContent,
   split = false,
-  splitCaption,
+  reversed = false,
+  featuredQuote,
+  featuredName,
 }: StoryPhotoSectionProps) {
-  if (split) {
-    return (
-      <section className="flex w-full gap-12 bg-cream px-12 py-16">
-        <div className="flex flex-1 flex-col gap-6">
-          <Placeholder
-            label={`story-${id}-photo-${photoIndex}.jpg`}
-            className="h-[765px] w-full"
-          />
-        </div>
-        <div className="flex flex-1 flex-col gap-6 justify-center">
-          {splitCaption && (
-            <p className="text-2xl font-normal leading-none text-brown-dark">
-              {splitCaption}
-            </p>
+  const photo = (
+    <div className="relative h-[765px] w-full">
+      <Image
+        src={`/images/stories/story${id}/story${id}_${photoIndex}.JPG`}
+        alt=""
+        fill
+        className="object-cover"
+      />
+    </div>
+  );
+
+  const hasText = Boolean(textContent || featuredQuote);
+
+  const textCol = hasText ? (
+    <div className="flex flex-col gap-6">
+      {textContent && <TextBlocks text={textContent} />}
+      {featuredQuote && (
+        <>
+          <blockquote className="border-l-4 border-olive-dark pl-12 text-[32px] font-bold italic leading-none text-olive-dark">
+            {featuredQuote}
+          </blockquote>
+          {featuredName && (
+            <p className="text-2xl font-bold uppercase text-brown-dark">{featuredName}</p>
           )}
-        </div>
+        </>
+      )}
+    </div>
+  ) : null;
+
+  if (!split) {
+    return (
+      <section className="flex w-full flex-col bg-cream px-12 py-16" style={{ gap: hasText ? 48 : 0 }}>
+        {photo}
+        {textCol}
       </section>
     );
   }
 
+  const leftContent = reversed ? textCol : <div className="h-[765px] w-full">{photo}</div>;
+  const rightContent = reversed ? <div className="h-[765px] w-full">{photo}</div> : textCol;
+
   return (
-    <section className="flex w-full flex-col gap-12 bg-cream px-12 py-16">
-      <Placeholder
-        label={`story-${id}-photo-${photoIndex}.jpg`}
-        className="h-[765px] w-full"
-      />
-      {caption && (
-        <p className="text-2xl font-normal leading-none text-brown-dark max-w-[1344px]">
-          {caption}
-        </p>
-      )}
+    <section className="flex w-full gap-12 bg-cream px-12 py-16">
+      <div className="flex flex-1 flex-col justify-center gap-6">{leftContent}</div>
+      <div className="flex flex-1 flex-col justify-center gap-6">{rightContent}</div>
     </section>
   );
 }
