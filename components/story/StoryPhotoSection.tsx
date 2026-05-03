@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { InlineText } from "@/lib/InlineText";
 
 interface StoryPhotoSectionProps {
   id: number;
@@ -22,13 +23,13 @@ function TextBlocks({ text }: { text: string }) {
               key={i}
               className="border-l-4 border-olive-dark pl-12 text-2xl font-normal italic leading-none text-brown-dark"
             >
-              {block}
+              <InlineText text={block} />
             </blockquote>
           );
         }
         return (
-          <p key={i} className="text-2xl font-normal leading-none text-brown-dark" style={{ whiteSpace: "pre-line" }}>
-            {block}
+          <p key={i} className="text-2xl font-normal leading-none text-brown-dark">
+            <InlineText text={block} />
           </p>
         );
       })}

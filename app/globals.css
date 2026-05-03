@@ -23,6 +23,12 @@
     padding: 0;
   }
 
+  p,
+  blockquote,
+  li {
+    white-space: pre-line;
+  }
+
   html {
     overflow-x: hidden;
   }

@@ -1,3 +1,5 @@
+import { InlineText } from "@/lib/InlineText";
+
 interface StoryDescriptionProps {
   body: string;
 }
@@ -16,17 +18,13 @@ export function StoryDescription({ body }: StoryDescriptionProps) {
                 key={i}
                 className="border-l-4 border-olive-dark pl-12 text-2xl font-normal italic leading-[1.3] text-brown-dark"
               >
-                {block}
+                <InlineText text={block} />
               </blockquote>
             );
           }
           return (
-            <p
-              key={i}
-              className="text-2xl font-normal leading-[1.3] text-brown-dark"
-              style={{ whiteSpace: "pre-line" }}
-            >
-              {block}
+            <p key={i} className="text-2xl font-normal leading-[1.3] text-brown-dark">
+              <InlineText text={block} />
             </p>
           );
         })}

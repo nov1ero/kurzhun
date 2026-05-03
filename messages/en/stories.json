@@ -4,6 +4,7 @@
     "readMore": "Read More",
     "next": "Next story",
     "prev": "Previous story",
+    "home": "Home Page",
     "recorded": "Recorded",
     "contact": "Contact",
     "video": "Video",
@@ -29,13 +30,15 @@
       "name": "Toktosunova Kenjekan",
       "location": "Tamchy, Ysyk-Kol",
       "date": "15/09/2025",
-      "lead": "Felt is not woven — it is pressed.",
-      "bodyMain": "Felt is not woven. It is pressed.",
-      "bodyPhoto1": "Fibres entangle slowly, under pressure and heat — there is no loom, no shuttle, no rhythm of over and under. The material comes into being through force and closeness. So do memories.",
-      "bodyPhoto2": "The felt lining of a Kurjun was not decoration. It was insulation — against cold, against breakage, against loss. The softness was structural. The warmth was intentional.",
-      "bodyPhoto3": "Fibres entangle slowly, under pressure and heat — there is no loom, no shuttle, no rhythm of over and under. The material comes into being through force and closeness. So do memories.",
+      "lead": "The shore is empty, the water steel-blue and restless, the sky pale and wide. The air coming off the Ysyk-Kol lake is cool and clean, the kind that clears your head the moment you step outside. This is Tamchy in autumn. \nA few meters from the water, close enough to feel its presence, is Kenjekan's home.  This is where she creates. This is where her colours come from.",
+      "bodyMain": "Toktosunova Kenjekan can not be described by one thing: she is a craftswoman, trainer, producer, and grower of things. Her reputation in the crafts field is serious, having developed thirty-seven products for the global market, and over eight thousand people have been trained by her. In person, she is anything but formal. She welcomes you like family, talks like she has known you for years, and somehow makes you feel that everything is going to be fine.",
+      "bodyPhoto1": "She is the youngest of twenty-five children, born into a family where craft was a way of living. Her grandfather began working as a craftsman in 1864, making everything nomadic life required. By the 1880s the family was trading along the Silk Road, between Andijan, Urumqi, and Kashgar. Through the Urkun, through Soviet rule, through everything history threw at them, the family and the craft survived. \n\n\"For some people this might seem fascinating. For me it's just everyday life,\" she says. \nKenjekan cut her first shyrdak pattern when she was only twelve and sliced her hand down to the base of the fingernail. Her mother looked at the wound and smiled: *\"You cut your finger deep –  it means you'll become a famous craftswoman.\"* \n\nHer classroom was her mother's hands: \n\n\"I used to watch carefully how my mother worked — how she laid out the pattern –  and whenever I saw a mistake, I would point it out and fix it.\"",
+      "bodyPhoto2": "For Kenjekan, a finished piece is never just an object. *\"Every handmade piece is a letter to the next generation.\"* And when you hold one, she believes, you can feel who made it. \n\n\"When you look at it closely, you can feel how much energy and love went into it, what she thought and felt while sewing. You can almost sense her spirit relaxing, enjoying, putting good intentions into each stitch.\"\n\nWhen asked where she finds inspiration for her color combinations, she stands up, walks to the door, and opens it. \n\n\"Look, the yellowing colors of the pear tree. The sky, when clouds cover it. The green grass over there. When you look at all this, the colors come to you by themselves.\"\n  \n\"I just step outside.\"",
+      "bodyPhoto3": "When she started working beyond her family, she met Dinara Chochunbaeva. Together, they created a talent-support fund and the first orders came. She evaluated each one carefully, what her team could produce, what they couldn't. After some time, she secured her first independent loan and started expanding from there.\n\n\"That allowed me to develop independently.\"\n\nToday, twenty-five local people work in her production. Every machine owned outright, bought from daily earnings she set aside. Nowadays, the daily management of the production has passed to her son, but she still supervises each process.",
+      "text": "Away from the orders and the workshop, there is another side of her.\nSomeone once asked her why she seemed so happy. She didn't hesitate.\n\n\"Because I breathe fresh air. I drink tea made from medicinal herbs that grow right here on the land. I drink clean water. Every day I see the sun, and I thank God that I'm alive on this earth.\"\n\nAt night, she looks at the stars. *\"I travel among them,\"* she says. *\"I exercise my eyes that way. And that restores my vision.\"*\n  \nShe is not finished. Not even close. *\"I still have about 46 more years of life,\"* she says. \n\n\"If you set a goal, a person can achieve it. Living without goals is not really living.\"",
       "contactText": "If you'd like to reach out to her",
-      "contactInfo": "Contact number: —"
+      "contactInfo": "Contact number: —",
+      "videoUrl": ""
     },
     "3": {
       "eyebrow": "Naryn",
@@ -49,7 +52,8 @@
       "bodyPhoto2": "Some things you are told. Some things you carry.",
       "bodyPhoto3": "Inside it — not only objects. Inside it — a way of life, a set of unspoken instructions, a silent conversation across time. To receive a Kurjun is to inherit a form of attention: you learn what deserves to be kept, what deserves to travel, what deserves to arrive.",
       "contactText": "If you'd like to reach out to her",
-      "contactInfo": "Contact number: —"
+      "contactInfo": "Contact number: —",
+      "videoUrl": ""
     },
     "4": {
       "eyebrow": " Kara-Suu, At-Bashy (Naryn)",
@@ -63,7 +67,8 @@
       "bodyPhoto2": "The Kurjun does not judge. It holds what you decide to carry, and it keeps it without question.",
       "bodyPhoto3": "Some objects weigh almost nothing — a dried flower, a folded note, a coin worn smooth. Yet these are the last things you would leave behind. Weight is not the measure of value; sometimes the lightest objects are the ones you cross a mountain for.",
       "contactText": "If you'd like to reach out to her",
-      "contactInfo": "Contact number: —"
+      "contactInfo": "Contact number: —",
+      "videoUrl": ""
     },
     "5": {
       "eyebrow": "Naryn",
@@ -77,7 +82,8 @@
       "bodyPhoto2": "When the pattern repeats across generations, it is not repetition. It is recognition. You see the same form in your grandmother's hands and in your own, and something connects — not just the pattern, but the intention behind it.",
       "bodyPhoto3": "Together they form something that cannot be reduced to its parts — a pattern, a logic, a life. The woven textiles carried in a Kurjun were never random. Every colour, every crossing of thread, was a decision. A record.",
       "contactText": "If you'd like to reach out to her",
-      "contactInfo": "Contact number: —"
+      "contactInfo": "Contact number: —",
+      "videoUrl": ""
     }
   }
 }

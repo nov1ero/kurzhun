@@ -7,6 +7,7 @@ import { StoryDescription } from "@/components/story/StoryDescription";
 import { StoryPhotoSection } from "@/components/story/StoryPhotoSection";
 import { StoryQuoteContact } from "@/components/story/StoryQuoteContact";
 import { StoryVideoSection } from "@/components/story/StoryVideoSection";
+import { StoryTextSection } from "@/components/story/StoryTextSection";
 import { StoryNav } from "@/components/story/StoryNav";
 import { DashedBar } from "@/components/ui/DashedBar";
 import { CreditsSection } from "@/components/sections/CreditsSection";
@@ -74,7 +75,7 @@ export default async function StoryPage({ params }: PageProps) {
       prevLabel={t("story.prev")}
       nextLabel={t("story.next")}
       homeLabel={t("nav.home")}
-      mainPage={"Main Page"}
+      mainPage={t("story.home")}
     />
   );
 
@@ -141,16 +142,27 @@ export default async function StoryPage({ params }: PageProps) {
             <StoryPhotoSection
               id={2}
               photoIndex={1}
-              split
               textContent={t("story.2.bodyPhoto1")}
             />
+            {quoteContactOrnOnly}
             <StoryPhotoSection
               id={2}
               photoIndex={2}
               textContent={t("story.2.bodyPhoto2")}
             />
-            {quoteContact}
             <StoryPhotoSection id={2} photoIndex={3} />
+            <StoryPhotoSection
+              id={2}
+              photoIndex={4}
+              split
+              textContent={t("story.2.bodyPhoto3")}
+            />
+            <StoryTextSection
+              text={t("story.2.text")}
+              name={t("story.2.name")}
+            />
+            {quoteContact}
+            <StoryPhotoSection id={2} photoIndex={5} />
           </>
         )}
 
