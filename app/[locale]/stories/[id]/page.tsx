@@ -250,7 +250,7 @@ export default async function StoryPage({ params }: PageProps) {
             <StoryPhotoSection
               id={5}
               photoIndex={5}
-              textContent={t("story.5.bodyPhoto1")}
+              textContent={t("story.5.bodyPhoto4")}
             />
             {quoteContact}
           </>
