@@ -41,21 +41,18 @@ export function StoryQuoteContact({ contactText, contactInfo, showContact = fals
     <section
       className="flex w-full items-center justify-center overflow-hidden"
       style={{
-        height: CONTAINER_H,
+        minHeight: CONTAINER_H,
         backgroundColor: "#6A704C",
-        padding: "0 clamp(16px, 4vw, 48px)",
+        padding: "16px clamp(16px, 4vw, 48px)",
       }}
     >
       {showContact ? (
-        <div
-          className="flex w-full items-center justify-center"
-          style={{ gap: "clamp(24px, 10vw, 283px)" }}
-        >
+        <div className="flex w-full flex-col items-center gap-6 md:flex-row md:justify-center md:gap-[120px] lg:gap-[283px]">
           {ornament}
-          <div style={{ maxWidth: 577, width: "100%", flexShrink: 1 }}>
+          <div style={{ maxWidth: 577, width: "100%" }}>
             <p
               className="font-bold text-white"
-              style={{ fontSize: "clamp(20px, 3vw, 32px)", lineHeight: "100%", whiteSpace: "pre-line" }}
+              style={{ fontSize: "clamp(18px, 3vw, 32px)", lineHeight: "130%", whiteSpace: "pre-line" }}
             >
               {contactText}{"\n"}{contactInfo}
             </p>

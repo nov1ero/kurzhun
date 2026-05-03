@@ -10,15 +10,15 @@ export async function Footer() {
 
   return (
     <footer className="flex h-[44px] w-full items-center bg-brown-dark px-4 md:px-12">
-      {/* Left text */}
-      <div className="flex flex-1 items-center">
+      {/* Left text — hidden on mobile */}
+      <div className="hidden flex-1 items-center md:flex">
         <span className="text-base font-bold uppercase text-cream">
           {t("footer.left")}
         </span>
       </div>
 
       {/* Center logo — links to home */}
-      <Link href="/" className="flex items-center px-6">
+      <Link href="/" className="flex flex-1 items-center justify-center px-6 md:flex-none">
         <Image
           src="/svg/logo.svg"
           alt={t("title")}
@@ -28,8 +28,8 @@ export async function Footer() {
         />
       </Link>
 
-      {/* Right text */}
-      <div className="flex flex-1 items-center justify-end">
+      {/* Right text — hidden on mobile */}
+      <div className="hidden flex-1 items-center justify-end md:flex">
         <span className="text-base font-bold uppercase text-cream">
           {t("footer.right")}
         </span>
