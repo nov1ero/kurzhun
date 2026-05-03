@@ -19,6 +19,14 @@ export function GallerySection({ eyebrow, viewAll }: GallerySectionProps) {
   const hasDragged = useRef(false);
   const startX = useRef(0);
   const scrollStart = useRef(0);
+  const preloaded = useRef(new Set<string>());
+
+  function handleMouseEnter(img: string) {
+    if (preloaded.current.has(img)) return;
+    preloaded.current.add(img);
+    const el = new window.Image();
+    el.src = `/images/gallery/${img}`;
+  }
 
   function handleMouseDown(e: React.MouseEvent) {
     if (!trackRef.current) return;
@@ -71,6 +79,7 @@ export function GallerySection({ eyebrow, viewAll }: GallerySectionProps) {
             <button
               key={i}
               onClick={() => handleImageClick(i)}
+              onMouseEnter={() => handleMouseEnter(img)}
               className="shrink-0 focus-visible:outline-none"
             >
               <div className="relative h-[380px] w-[380px] overflow-hidden">
@@ -96,11 +105,10 @@ export function GallerySection({ eyebrow, viewAll }: GallerySectionProps) {
             className="relative"
             onClick={(e) => e.stopPropagation()}
           >
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src={`/images/gallery/${GALLERY_IMAGES[selected]}`}
               alt=""
-              width={1200}
-              height={900}
               className="max-h-[85vh] max-w-[85vw] object-contain"
               style={{ width: "auto", height: "auto" }}
             />
