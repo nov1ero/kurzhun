@@ -36,7 +36,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={anonymousPro.variable}>
       <body>
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
           <Footer />
         </NextIntlClientProvider>

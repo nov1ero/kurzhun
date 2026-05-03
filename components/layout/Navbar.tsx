@@ -18,7 +18,7 @@ export function Navbar({ navHome, navStories, navGallery, navAbout }: NavbarProp
 
   const links = [
     { href: "/", label: navHome },
-    { href: "/stories", label: navStories },
+    { href: "/#stories", label: navStories },
     { href: "/#gallery", label: navGallery },
     { href: "/#about", label: navAbout },
   ];
