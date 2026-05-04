@@ -5,6 +5,7 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Footer } from "@/components/layout/Footer";
+import { PageTransition } from "@/components/layout/PageTransition";
 import { getTranslations } from "next-intl/server";
 
 const anonymousPro = Anonymous_Pro({
@@ -47,7 +48,7 @@ export default async function LocaleLayout({
     <html lang={locale} data-locale={locale} className={fontClass}>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          {children}
+          <PageTransition>{children}</PageTransition>
           <Footer
             left={t("footer.left")}
             right={t("footer.right")}

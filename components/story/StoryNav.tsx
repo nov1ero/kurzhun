@@ -1,4 +1,7 @@
-import { Link } from "@/i18n/navigation";
+"use client";
+
+import { useRouter } from "@/i18n/navigation";
+import { setNavDirection } from "@/lib/navDirection";
 
 interface StoryNavProps {
   prevId: number | null;
@@ -37,60 +40,54 @@ export function StoryNav({
   homeLabel,
   mainPage,
 }: StoryNavProps) {
+  const router = useRouter();
+
+  function goLeft() {
+    setNavDirection(-1);
+    router.push((prevId !== null ? `/stories/${prevId}` : "/") as "/");
+  }
+
+  function goRight() {
+    setNavDirection(1);
+    router.push((nextId !== null ? `/stories/${nextId}` : "/") as "/");
+  }
+
   return (
     <nav className="flex w-full md:h-[127px]">
       {/* Left — prev story or home */}
       <div className="flex w-1/2">
-        {prevId !== null ? (
-          <Link
-            href={`/stories/${prevId}` as "/"}
-            className="flex w-full flex-col justify-center border border-brown-dark bg-cream px-4 py-5 transition-colors hover:bg-tan md:px-16 md:py-0"
-          >
-            <div className="flex items-center gap-3 md:gap-6">
-              <ArrowLeft />
-              <span className="text-xs font-bold uppercase leading-none text-brown-dark">{prevLabel}</span>
-            </div>
-            <p className="text-sm font-bold leading-snug text-brown-dark md:text-base md:leading-6">{prevTitle}</p>
-          </Link>
-        ) : (
-          <Link
-            href="/"
-            className="flex w-full flex-col justify-center border border-brown-dark bg-cream px-4 py-5 transition-colors hover:bg-tan md:px-16 md:py-0"
-          >
-            <div className="flex items-center gap-3 md:gap-6">
-              <ArrowLeft />
-              <span className="text-xs font-bold uppercase leading-none text-brown-dark">{homeLabel}</span>
-            </div>
-            <p className="text-sm font-bold leading-snug text-brown-dark md:text-base md:leading-6">{mainPage}</p>
-          </Link>
-        )}
+        <button
+          onClick={goLeft}
+          className="flex w-full flex-col justify-center border border-brown-dark bg-cream px-4 py-5 text-left transition-colors hover:bg-tan md:px-16 md:py-0"
+        >
+          <div className="flex items-center gap-3 md:gap-6">
+            <ArrowLeft />
+            <span className="text-xs font-bold uppercase leading-none text-brown-dark">
+              {prevId !== null ? prevLabel : homeLabel}
+            </span>
+          </div>
+          <p className="text-sm font-bold leading-snug text-brown-dark md:text-base md:leading-6">
+            {prevId !== null ? prevTitle : mainPage}
+          </p>
+        </button>
       </div>
 
       {/* Right — next story or home */}
       <div className="flex w-1/2">
-        {nextId !== null ? (
-          <Link
-            href={`/stories/${nextId}` as "/"}
-            className="flex w-full flex-col items-end justify-center border border-brown-dark bg-cream px-4 py-5 transition-colors hover:bg-tan md:px-16 md:py-0"
-          >
-            <div className="flex items-center gap-3 md:gap-6">
-              <span className="text-xs font-bold uppercase leading-none text-brown-dark">{nextLabel}</span>
-              <ArrowRight />
-            </div>
-            <p className="text-sm font-bold leading-snug text-brown-dark md:text-base md:leading-6">{nextTitle}</p>
-          </Link>
-        ) : (
-          <Link
-            href="/"
-            className="flex w-full flex-col items-end justify-center border border-brown-dark bg-cream px-4 py-5 transition-colors hover:bg-tan md:px-16 md:py-0"
-          >
-            <div className="flex items-center gap-3 md:gap-6">
-              <span className="text-xs font-bold uppercase leading-none text-brown-dark">{homeLabel}</span>
-              <ArrowRight />
-            </div>
-            <p className="text-sm font-bold leading-snug text-brown-dark md:text-base md:leading-6">{mainPage}</p>
-          </Link>
-        )}
+        <button
+          onClick={goRight}
+          className="flex w-full flex-col items-end justify-center border border-brown-dark bg-cream px-4 py-5 text-right transition-colors hover:bg-tan md:px-16 md:py-0"
+        >
+          <div className="flex items-center gap-3 md:gap-6">
+            <span className="text-xs font-bold uppercase leading-none text-brown-dark">
+              {nextId !== null ? nextLabel : homeLabel}
+            </span>
+            <ArrowRight />
+          </div>
+          <p className="text-sm font-bold leading-snug text-brown-dark md:text-base md:leading-6">
+            {nextId !== null ? nextTitle : mainPage}
+          </p>
+        </button>
       </div>
     </nav>
   );
