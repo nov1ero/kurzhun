@@ -52,6 +52,7 @@ export default async function LocaleLayout({
             left={t("footer.left")}
             right={t("footer.right")}
             logoAlt={t("title")}
+            locale={locale}
           />
         </NextIntlClientProvider>
       </body>

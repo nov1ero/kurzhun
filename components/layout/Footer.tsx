@@ -8,9 +8,10 @@ interface FooterProps {
   left: string;
   right: string;
   logoAlt: string;
+  locale: string;
 }
 
-export function Footer({ left, right, logoAlt }: FooterProps) {
+export function Footer({ left, right, logoAlt, locale }: FooterProps) {
   return (
     <footer className="flex h-[44px] w-full items-center bg-brown-dark px-4 md:px-12">
       {/* Left text — hidden on mobile */}
@@ -21,7 +22,7 @@ export function Footer({ left, right, logoAlt }: FooterProps) {
       </div>
 
       {/* Center logo — links to home */}
-      <Link href="/" className="flex flex-1 items-center justify-center px-6 md:flex-none">
+      <Link href="/" locale={locale} className="flex flex-1 items-center justify-center px-6 md:flex-none">
         <Image
           src="/svg/logo.svg"
           alt={logoAlt}
