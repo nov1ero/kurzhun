@@ -73,6 +73,7 @@ export function StoriesCarousel({ stories }: StoriesCarouselProps) {
               src={`/images/stories/story${story.id}/story${story.id}_card.JPG`}
               alt=""
               fill
+              sizes="380px"
               className="object-cover"
             />
           </div>

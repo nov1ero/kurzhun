@@ -87,6 +87,7 @@ export function GallerySection({ eyebrow, viewAll }: GallerySectionProps) {
                   src={`/images/gallery/${img}`}
                   alt=""
                   fill
+                  sizes="(min-width: 768px) 380px, 240px"
                   className="object-cover transition-transform duration-300 hover:scale-105"
                   draggable={false}
                 />
@@ -126,6 +127,7 @@ export function GallerySection({ eyebrow, viewAll }: GallerySectionProps) {
                       src={`/images/gallery/${img}`}
                       alt=""
                       fill
+                      sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
                       className="object-cover transition-transform duration-300 hover:scale-105"
                     />
                   </div>
@@ -148,7 +150,7 @@ export function GallerySection({ eyebrow, viewAll }: GallerySectionProps) {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={`/images/gallery/${GALLERY_IMAGES[selected]}`}
+              src={`/_next/image?url=${encodeURIComponent(`/images/gallery/${GALLERY_IMAGES[selected]}`)}&w=1920&q=85`}
               alt=""
               className="max-h-[85vh] max-w-[85vw] object-contain"
               style={{ width: "auto", height: "auto" }}

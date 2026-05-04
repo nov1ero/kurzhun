@@ -78,6 +78,7 @@ export function StoriesSection({ eyebrow, readAll, stories }: StoriesSectionProp
                       src={`/images/stories/story${story.id}/story${story.id}_card.JPG`}
                       alt=""
                       fill
+                      sizes="(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
                       className="object-cover"
                     />
                   </div>

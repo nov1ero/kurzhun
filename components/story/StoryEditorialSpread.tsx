@@ -29,6 +29,8 @@ export function StoryEditorialSpread({
           src={`/images/stories/story${id}/story${id}_hero.JPG`}
           alt=""
           fill
+          priority
+          sizes="(min-width: 768px) 50vw, 100vw"
           className="object-cover"
         />
       </div>

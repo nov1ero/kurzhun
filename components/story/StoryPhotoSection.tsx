@@ -52,6 +52,7 @@ export function StoryPhotoSection({
         src={`/images/stories/story${id}/story${id}_${photoIndex}.JPG`}
         alt=""
         fill
+        sizes={split ? "(min-width: 768px) 50vw, 100vw" : "100vw"}
         className="object-cover"
       />
     </div>

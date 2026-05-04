@@ -17,6 +17,8 @@ export function HeroSection({ eyebrow, title, desc }: HeroSectionProps) {
           src="/images/main_page/hero.JPG"
           alt=""
           fill
+          priority
+          sizes="100vw"
           className="object-cover scale-110 translate-x-[5%]"
         />
       </div>
