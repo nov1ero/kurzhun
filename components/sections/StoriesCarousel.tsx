@@ -65,10 +65,10 @@ export function StoriesCarousel({ stories }: StoriesCarouselProps) {
         <article
           key={story.id}
           onClick={() => handleCardClick(story.id)}
-          className="flex h-[344px] w-[336px] shrink-0 cursor-pointer flex-col gap-5 border border-b-0 border-brown-dark bg-cream p-6 transition-colors hover:bg-tan"
+          className="flex h-[400px] w-[380px] shrink-0 cursor-pointer flex-col border border-b-0 border-brown-dark bg-cream p-6 transition-colors hover:bg-tan"
         >
           {/* Hero image */}
-          <div className="relative h-[176px] w-[288px] shrink-0 overflow-hidden">
+          <div className="relative h-[200px] w-full shrink-0 overflow-hidden">
             <Image
               src={`/images/stories/story${story.id}/story${story.id}_card.JPG`}
               alt=""
@@ -77,9 +77,9 @@ export function StoriesCarousel({ stories }: StoriesCarouselProps) {
             />
           </div>
 
-          {/* Content */}
-          <div className="flex flex-col gap-4">
-            <p className="text-base font-bold leading-none text-brown-dark">
+          {/* Content — quote top, title+location bottom */}
+          <div className="mt-4 flex flex-1 flex-col justify-between">
+            <p className="line-clamp-2 text-base font-bold leading-snug text-brown-dark">
               {story.quote}
             </p>
             <div className="flex flex-col gap-1">

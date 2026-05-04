@@ -105,6 +105,7 @@ export default async function StoryPage({ params }: PageProps) {
           name={t(`story.${numId}.name`)}
           location={t(`story.${numId}.location`)}
           lead={t(`story.${numId}.lead`)}
+          dateFirst={locale === "kg"}
         />
         <StoryDescription body={t(`story.${numId}.bodyMain`)} />
 

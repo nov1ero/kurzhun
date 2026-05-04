@@ -5,6 +5,7 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Footer } from "@/components/layout/Footer";
+import { getTranslations } from "next-intl/server";
 
 const anonymousPro = Anonymous_Pro({
   subsets: ["latin"],
@@ -38,6 +39,7 @@ export default async function LocaleLayout({
   if (!routing.locales.includes(locale as "kg" | "en")) notFound();
 
   const messages = await getMessages();
+  const t = await getTranslations({ locale });
 
   const fontClass = `${anonymousPro.variable} ${ptMono.variable}`;
 
@@ -46,7 +48,11 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
-          <Footer />
+          <Footer
+            left={t("footer.left")}
+            right={t("footer.right")}
+            logoAlt={t("title")}
+          />
         </NextIntlClientProvider>
       </body>
     </html>

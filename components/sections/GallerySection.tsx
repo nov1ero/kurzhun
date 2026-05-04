@@ -60,7 +60,7 @@ export function GallerySection({ eyebrow, viewAll }: GallerySectionProps) {
           <h2 className="text-[32px] font-bold text-rust">{eyebrow}</h2>
           <button
             onClick={() => setShowModal(true)}
-            className="cursor-pointer border-b-2 border-rust px-3 py-2.5 text-2xl font-bold text-brown-body transition-colors hover:text-rust"
+            className="cursor-pointer border-b-2 border-rust px-3 py-2.5 text-base font-bold text-brown-body transition-colors hover:text-rust md:text-2xl"
           >
             {viewAll}
           </button>

@@ -37,7 +37,7 @@ export function StoriesSection({ eyebrow, readAll, stories }: StoriesSectionProp
           </span>
           <button
             onClick={() => setShowModal(true)}
-            className="flex h-11 cursor-pointer items-center border-b-2 border-rust px-3 py-2.5 text-2xl font-bold text-brown-body transition-colors hover:text-rust"
+            className="flex h-11 cursor-pointer items-center border-b-2 border-rust px-3 py-2.5 text-base font-bold text-brown-body transition-colors hover:text-rust md:text-2xl"
           >
             {readAll}
           </button>

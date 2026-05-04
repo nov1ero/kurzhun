@@ -52,7 +52,7 @@ export function StoryQuoteContact({ contactText, contactInfo, showContact = fals
           <div style={{ maxWidth: 577, width: "100%" }}>
             <p
               className="font-bold text-white"
-              style={{ fontSize: "clamp(18px, 3vw, 32px)", lineHeight: "130%", whiteSpace: "pre-line" }}
+              style={{ fontSize: "clamp(18px, 3vw, 28px)", lineHeight: "130%", whiteSpace: "pre-line" }}
             >
               {contactText}{"\n"}{contactInfo}
             </p>

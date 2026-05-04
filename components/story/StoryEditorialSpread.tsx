@@ -8,6 +8,7 @@ interface StoryEditorialSpreadProps {
   name: string;
   location: string;
   lead: string;
+  dateFirst?: boolean;
 }
 
 export function StoryEditorialSpread({
@@ -18,6 +19,7 @@ export function StoryEditorialSpread({
   name,
   location,
   lead,
+  dateFirst = false,
 }: StoryEditorialSpreadProps) {
   return (
     <section className="relative flex h-auto w-full flex-col border-y border-brown-dark md:h-[642px] md:flex-row">
@@ -37,7 +39,7 @@ export function StoryEditorialSpread({
           {/* Top block */}
           <div className="flex flex-col gap-4 border-b border-black pb-6">
             <p className="text-base font-bold uppercase text-olive-dark">
-              {recorded} {date}
+              {dateFirst ? `${date} ${recorded}` : `${recorded} ${date}`}
             </p>
             <h1
               className="text-[32px] font-bold leading-tight text-brown-dark md:text-[60px] md:leading-[56px]"
