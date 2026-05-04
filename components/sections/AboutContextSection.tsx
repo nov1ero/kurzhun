@@ -22,8 +22,8 @@ export function AboutContextSection({ label, col1, col2 }: AboutContextSectionPr
 
         {/* Two-column text */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-[90px]">
-          <p className="text-2xl font-bold leading-none text-brown-body" style={{ whiteSpace: "pre-line" }}>{col1}</p>
-          <p className="text-2xl font-bold leading-none text-brown-body" style={{ whiteSpace: "pre-line" }}>{col2}</p>
+          <p className="text-2xl font-normal leading-none text-brown-body" style={{ whiteSpace: "pre-line" }}>{col1}</p>
+          <p className="text-2xl font-normal leading-none text-brown-body" style={{ whiteSpace: "pre-line" }}>{col2}</p>
         </div>
       </div>
     </section>
