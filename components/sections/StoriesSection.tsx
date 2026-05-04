@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { useRouter } from "@/i18n/navigation";
 import { StoriesCarousel } from "./StoriesCarousel";
@@ -18,9 +19,17 @@ interface StoriesSectionProps {
   stories: StoryCardData[];
 }
 
+type OverlayState = "closed" | "open" | "closing";
+
 export function StoriesSection({ eyebrow, readAll, stories }: StoriesSectionProps) {
-  const [showModal, setShowModal] = useState(false);
+  const [modalState, setModalState] = useState<OverlayState>("closed");
   const router = useRouter();
+
+  function openModal() { setModalState("open"); }
+  function closeModal() {
+    setModalState("closing");
+    setTimeout(() => setModalState("closed"), 200);
+  }
 
   function handleCardClick(id: number) {
     sessionStorage.setItem("kurzhun-scroll", String(window.scrollY));
@@ -36,7 +45,7 @@ export function StoriesSection({ eyebrow, readAll, stories }: StoriesSectionProp
             {eyebrow}
           </span>
           <button
-            onClick={() => setShowModal(true)}
+            onClick={openModal}
             className="flex h-11 cursor-pointer items-center border-b-2 border-rust px-3 py-2.5 text-base font-bold text-brown-body transition-colors hover:text-rust md:text-2xl"
           >
             {readAll}
@@ -49,18 +58,18 @@ export function StoriesSection({ eyebrow, readAll, stories }: StoriesSectionProp
         <StoriesCarousel stories={stories} />
       </div>
 
-      {/* Stories modal */}
-      {showModal && (
+      {/* Stories modal — portal escapes any transformed ancestor */}
+      {modalState !== "closed" && createPortal(
         <div
-          className="fixed inset-0 z-50 overflow-y-auto bg-black/90"
-          onClick={() => setShowModal(false)}
+          className={`fixed inset-0 z-50 overflow-y-auto bg-black/90 ${modalState === "closing" ? "animate-fade-out" : "animate-fade-in"}`}
+          onClick={closeModal}
         >
           <div
             className="relative mx-auto max-w-7xl px-8 py-20"
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              onClick={() => setShowModal(false)}
+              onClick={closeModal}
               className="absolute right-8 top-6 text-4xl leading-none text-white"
               aria-label="Close"
             >
@@ -99,7 +108,8 @@ export function StoriesSection({ eyebrow, readAll, stories }: StoriesSectionProp
               ))}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );

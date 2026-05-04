@@ -1,9 +1,12 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 
 const GALLERY_IMAGES = Array.from({ length: 22 }, (_, i) => `gallery_${i + 1}.JPG`);
+
+type OverlayState = "closed" | "open" | "closing";
 
 interface GallerySectionProps {
   eyebrow: string;
@@ -11,8 +14,9 @@ interface GallerySectionProps {
 }
 
 export function GallerySection({ eyebrow, viewAll }: GallerySectionProps) {
+  const [modalState, setModalState] = useState<OverlayState>("closed");
   const [selected, setSelected] = useState<number | null>(null);
-  const [showModal, setShowModal] = useState(false);
+  const [lightboxClosing, setLightboxClosing] = useState(false);
 
   const trackRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
@@ -53,13 +57,24 @@ export function GallerySection({ eyebrow, viewAll }: GallerySectionProps) {
     if (!hasDragged.current) setSelected(index);
   }
 
+  function openModal() { setModalState("open"); }
+  function closeModal() {
+    setModalState("closing");
+    setTimeout(() => setModalState("closed"), 200);
+  }
+
+  function closeLightbox() {
+    setLightboxClosing(true);
+    setTimeout(() => { setSelected(null); setLightboxClosing(false); }, 150);
+  }
+
   return (
     <section id="gallery" className="w-full border-t border-brown-dark bg-tan">
       <div className="px-4 py-10 md:px-12 md:py-16">
         <div className="mb-8 flex items-center justify-between">
           <h2 className="text-[32px] font-bold text-rust">{eyebrow}</h2>
           <button
-            onClick={() => setShowModal(true)}
+            onClick={openModal}
             className="cursor-pointer border-b-2 border-rust px-3 py-2.5 text-base font-bold text-brown-body transition-colors hover:text-rust md:text-2xl"
           >
             {viewAll}
@@ -97,18 +112,18 @@ export function GallerySection({ eyebrow, viewAll }: GallerySectionProps) {
         </div>
       </div>
 
-      {/* Gallery modal */}
-      {showModal && (
+      {/* Gallery modal — portal escapes any transformed ancestor */}
+      {modalState !== "closed" && createPortal(
         <div
-          className="fixed inset-0 z-50 overflow-y-auto bg-black/90"
-          onClick={() => setShowModal(false)}
+          className={`fixed inset-0 z-50 overflow-y-auto bg-black/90 ${modalState === "closing" ? "animate-fade-out" : "animate-fade-in"}`}
+          onClick={closeModal}
         >
           <div
             className="relative mx-auto max-w-7xl px-8 py-20"
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              onClick={() => setShowModal(false)}
+              onClick={closeModal}
               className="absolute right-8 top-6 text-4xl leading-none text-white"
               aria-label="Close"
             >
@@ -135,17 +150,18 @@ export function GallerySection({ eyebrow, viewAll }: GallerySectionProps) {
               ))}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
-      {/* Lightbox — above modal */}
-      {selected !== null && (
+      {/* Lightbox — portal above modal */}
+      {selected !== null && createPortal(
         <div
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80"
-          onClick={() => setSelected(null)}
+          className={`fixed inset-0 z-[60] flex items-center justify-center bg-black/80 ${lightboxClosing ? "animate-fade-out" : "animate-fade-in"}`}
+          onClick={closeLightbox}
         >
           <div
-            className="relative"
+            className={`relative ${lightboxClosing ? "animate-scale-out" : "animate-scale-in"}`}
             onClick={(e) => e.stopPropagation()}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -156,14 +172,15 @@ export function GallerySection({ eyebrow, viewAll }: GallerySectionProps) {
               style={{ width: "auto", height: "auto" }}
             />
             <button
-              onClick={() => setSelected(null)}
+              onClick={closeLightbox}
               className="absolute -top-10 right-0 text-4xl leading-none text-white"
               aria-label="Close"
             >
               ×
             </button>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );

@@ -9,6 +9,7 @@ import { StoriesSection } from "@/components/sections/StoriesSection";
 import { GallerySection } from "@/components/sections/GallerySection";
 import { CreditsSection } from "@/components/sections/CreditsSection";
 import { DashedBar } from "@/components/ui/DashedBar";
+import { FadeIn } from "@/components/ui/FadeIn";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -56,44 +57,52 @@ export default async function HomePage({ params }: PageProps) {
           title={t("hero.title1") + " " + t("hero.title2")}
           desc={t("hero.desc") + "\n" + t("hero.desc2")}
         />
-        <AboutLogoSection />
-        <AboutIntroSection body={t("about.body")} />
-        <AboutContextSection
-          label={t("about.context")}
-          col1={t("about.col1")}
-          col2={t("about.col2")}
-        />
-        <StoriesSection
-          eyebrow={t("stories.title")}
-          readAll={t("stories.readAll")}
-          stories={stories}
-        />
+        <FadeIn><AboutLogoSection /></FadeIn>
+        <FadeIn><AboutIntroSection body={t("about.body")} /></FadeIn>
+        <FadeIn>
+          <AboutContextSection
+            label={t("about.context")}
+            col1={t("about.col1")}
+            col2={t("about.col2")}
+          />
+        </FadeIn>
+        <FadeIn>
+          <StoriesSection
+            eyebrow={t("stories.title")}
+            readAll={t("stories.readAll")}
+            stories={stories}
+          />
+        </FadeIn>
         <DashedBar />
-        <GallerySection
-          eyebrow={t("gallery.eyebrow")}
-          viewAll={t("gallery.viewAll")}
-        />
-        <CreditsSection
-          // heading={t("credits.heading")}
-          ackHeading={t("credits.ackHeading")}
-          ack1={t("credits.ack1")}
-          ack2={t("credits.ack2")}
-          ack3={t("credits.ack3")}
-          ack4={t("credits.ack4")}
-          creditsHeading={t("credits.creditsHeading")}
-          person1name={t("credits.person1name")}
-          person1bio={t("credits.person1bio")}
-          person2name={t("credits.person2name")}
-          person2bio={t("credits.person2bio")}
-          person2email={t("credits.person2email")}
-          webHeading={t("credits.webHeading")}
-          webDesign={t("credits.webDesign")}
-          webDev={t("credits.webDev")}
-          supportHeading={t("credits.supportHeading")}
-          supportText={t("credits.supportText")}
-          supportEmail={t("credits.supportEmail")}
-          copyright={t("credits.copyright")}
-        />
+        <FadeIn>
+          <GallerySection
+            eyebrow={t("gallery.eyebrow")}
+            viewAll={t("gallery.viewAll")}
+          />
+        </FadeIn>
+        <FadeIn>
+          <CreditsSection
+            // heading={t("credits.heading")}
+            ackHeading={t("credits.ackHeading")}
+            ack1={t("credits.ack1")}
+            ack2={t("credits.ack2")}
+            ack3={t("credits.ack3")}
+            ack4={t("credits.ack4")}
+            creditsHeading={t("credits.creditsHeading")}
+            person1name={t("credits.person1name")}
+            person1bio={t("credits.person1bio")}
+            person2name={t("credits.person2name")}
+            person2bio={t("credits.person2bio")}
+            person2email={t("credits.person2email")}
+            webHeading={t("credits.webHeading")}
+            webDesign={t("credits.webDesign")}
+            webDev={t("credits.webDev")}
+            supportHeading={t("credits.supportHeading")}
+            supportText={t("credits.supportText")}
+            supportEmail={t("credits.supportEmail")}
+            copyright={t("credits.copyright")}
+          />
+        </FadeIn>
       </main>
     </>
   );
