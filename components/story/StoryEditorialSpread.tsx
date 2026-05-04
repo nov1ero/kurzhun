@@ -22,9 +22,9 @@ export function StoryEditorialSpread({
   dateFirst = false,
 }: StoryEditorialSpreadProps) {
   return (
-    <section className="relative flex h-auto w-full flex-col border-y border-brown-dark md:h-[642px] md:flex-row">
-      {/* Hero image */}
-      <div className="relative h-[300px] w-full overflow-hidden bg-cream md:h-full md:w-1/2">
+    <section className="relative flex h-auto w-full flex-col border-y border-brown-dark md:min-h-[642px] md:flex-row">
+      {/* Hero image — on mobile: in-flow block; on desktop: absolute left half */}
+      <div className="relative h-[300px] w-full overflow-hidden bg-cream md:absolute md:bottom-0 md:left-0 md:top-0 md:h-auto md:w-1/2">
         <Image
           src={`/images/stories/story${id}/story${id}_hero.JPG`}
           alt=""
@@ -33,16 +33,16 @@ export function StoryEditorialSpread({
         />
       </div>
 
-      {/* Metadata */}
-      <div className="flex h-full w-full flex-col justify-center border-l border-brown-dark bg-cream px-6 py-10 md:w-1/2 md:px-20 md:py-[120px]">
+      {/* Metadata — on desktop: right half, pushed right via margin */}
+      <div className="flex w-full flex-col justify-center border-l border-brown-dark bg-cream px-6 py-10 sm:px-10 sm:py-14 md:ml-[50%] md:w-1/2 md:px-16 md:py-16 lg:px-20 lg:py-[100px]">
         <div className="flex flex-col gap-8">
           {/* Top block */}
           <div className="flex flex-col gap-4 border-b border-black pb-6">
-            <p className="text-base font-bold uppercase text-olive-dark">
+            <p className="text-base font-normal uppercase text-olive-dark">
               {dateFirst ? `${date} ${recorded}` : `${recorded} ${date}`}
             </p>
             <h1
-              className="text-[32px] font-bold leading-tight text-brown-dark md:text-[60px] md:leading-[56px]"
+              className={`font-bold leading-tight text-brown-dark ${dateFirst ? "text-[28px] md:text-[48px] md:leading-[50px]" : "text-[32px] md:text-[60px] md:leading-[56px]"}`}
               style={{ letterSpacing: "-1.8px" }}
             >
               {title}
@@ -51,12 +51,12 @@ export function StoryEditorialSpread({
 
           {/* Author info */}
           <div className="flex flex-col gap-3">
-            <p className="text-[20px] font-bold uppercase text-olive-dark">{name}</p>
-            <p className="text-base font-bold uppercase text-muted">{location}</p>
+            <p className="text-[20px] font-normal uppercase text-olive-dark">{name}</p>
+            <p className="text-base font-normal uppercase text-muted">{location}</p>
           </div>
 
           {/* Lead paragraph */}
-          <p className="text-[20px] font-bold leading-none text-brown-dark">{lead}</p>
+          <p className="text-[20px] font-normal leading-none text-brown-dark">{lead}</p>
         </div>
       </div>
     </section>
