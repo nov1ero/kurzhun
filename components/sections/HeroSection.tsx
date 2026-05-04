@@ -35,8 +35,8 @@ export function HeroSection({ eyebrow, title, desc }: HeroSectionProps) {
       />
 
       {/* Heading column */}
-      <div className="relative z-10 flex h-full flex-1 flex-col items-start justify-between py-12 md:py-[120px]">
-        <p className="text-base font-bold uppercase leading-none text-white">
+      <div className="relative z-10 flex h-full flex-1 flex-col items-start justify-between gap-10 py-14 md:gap-0 md:py-[120px]">
+        <p className="text-xs font-bold uppercase leading-none text-white md:text-base">
           {eyebrow}
         </p>
 
