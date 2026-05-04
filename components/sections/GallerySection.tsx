@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 
@@ -11,6 +11,22 @@ type OverlayState = "closed" | "open" | "closing";
 interface GallerySectionProps {
   eyebrow: string;
   viewAll: string;
+}
+
+function ChevronLeft() {
+  return (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M15 19l-7-7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}
+
+function ChevronRight() {
+  return (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
 }
 
 export function GallerySection({ eyebrow, viewAll }: GallerySectionProps) {
@@ -67,6 +83,30 @@ export function GallerySection({ eyebrow, viewAll }: GallerySectionProps) {
     setLightboxClosing(true);
     setTimeout(() => { setSelected(null); setLightboxClosing(false); }, 150);
   }
+
+  function goToPrev() {
+    setSelected(s => s !== null ? (s - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length : null);
+  }
+
+  function goToNext() {
+    setSelected(s => s !== null ? (s + 1) % GALLERY_IMAGES.length : null);
+  }
+
+  useEffect(() => {
+    if (selected === null) return;
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "ArrowLeft") {
+        setSelected(s => s !== null ? (s - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length : null);
+      } else if (e.key === "ArrowRight") {
+        setSelected(s => s !== null ? (s + 1) % GALLERY_IMAGES.length : null);
+      } else if (e.key === "Escape") {
+        setLightboxClosing(true);
+        setTimeout(() => { setSelected(null); setLightboxClosing(false); }, 150);
+      }
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [selected]);
 
   return (
     <section id="gallery" className="w-full border-t border-brown-dark bg-tan">
@@ -160,7 +200,18 @@ export function GallerySection({ eyebrow, viewAll }: GallerySectionProps) {
           className={`fixed inset-0 z-[60] flex items-center justify-center bg-black/80 ${lightboxClosing ? "animate-fade-out" : "animate-fade-in"}`}
           onClick={closeLightbox}
         >
+          {/* Prev arrow */}
+          <button
+            onClick={(e) => { e.stopPropagation(); goToPrev(); }}
+            className="absolute left-3 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center text-white opacity-60 transition-opacity hover:opacity-100 md:left-6"
+            aria-label="Previous photo"
+          >
+            <ChevronLeft />
+          </button>
+
+          {/* Image */}
           <div
+            key={selected}
             className={`relative ${lightboxClosing ? "animate-scale-out" : "animate-scale-in"}`}
             onClick={(e) => e.stopPropagation()}
           >
@@ -179,6 +230,15 @@ export function GallerySection({ eyebrow, viewAll }: GallerySectionProps) {
               ×
             </button>
           </div>
+
+          {/* Next arrow */}
+          <button
+            onClick={(e) => { e.stopPropagation(); goToNext(); }}
+            className="absolute right-3 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center text-white opacity-60 transition-opacity hover:opacity-100 md:right-6"
+            aria-label="Next photo"
+          >
+            <ChevronRight />
+          </button>
         </div>,
         document.body
       )}
