@@ -32,14 +32,38 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!STORY_IDS.includes(numId)) return {};
 
   const t = await getTranslations({ locale });
+  const base = "https://kurjun.vercel.app";
+  const path = locale === "kg" ? `/stories/${id}` : `/en/stories/${id}`;
+  const url = `${base}${path}`;
+  const title = `${t(`story.${numId}.title`)} — Куржун`;
+  const description = t(`story.${numId}.lead`);
+  const image = `${base}/images/stories/story${numId}/story${numId}_hero.JPG`;
+
   return {
-    title: `${t(`story.${numId}.title`)} — Kurjun`,
+    title,
+    description,
     alternates: {
+      canonical: url,
       languages: {
-        "ky-KG": `/stories/${id}`,
-        "en-US": `/en/stories/${id}`,
-        "x-default": `/stories/${id}`,
+        "ky-KG": `${base}/stories/${id}`,
+        "en-US": `${base}/en/stories/${id}`,
+        "x-default": `${base}/stories/${id}`,
       },
+    },
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: "Куржун",
+      images: [{ url: image, width: 1200, height: 800 }],
+      locale: locale === "kg" ? "ky_KG" : "en_US",
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
     },
   };
 }

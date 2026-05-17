@@ -18,16 +18,34 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
+  const base = "https://kurjun.vercel.app";
+  const url = locale === "kg" ? base : `${base}/${locale}`;
+
   return {
     title: t("title"),
     description: t("desc"),
     alternates: {
-      canonical: "/",
+      canonical: url,
       languages: {
-        "ky-KG": "/",
-        "en-US": "/en",
-        "x-default": "/",
+        "ky-KG": base,
+        "en-US": `${base}/en`,
+        "x-default": base,
       },
+    },
+    openGraph: {
+      title: t("title"),
+      description: t("desc"),
+      url,
+      siteName: "Куржун",
+      images: [{ url: `${base}/images/main_page/hero.JPG`, width: 1200, height: 630 }],
+      locale: locale === "kg" ? "ky_KG" : "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("desc"),
+      images: [`${base}/images/main_page/hero.JPG`],
     },
   };
 }
