@@ -7,6 +7,7 @@ interface StoryPhotoSectionProps {
   textContent?: string;
   split?: boolean;
   reversed?: boolean;
+  textFirst?: boolean;
   featuredQuote?: string;
   featuredName?: string;
 }
@@ -43,6 +44,7 @@ export function StoryPhotoSection({
   textContent,
   split = false,
   reversed = false,
+  textFirst = false,
   featuredQuote,
   featuredName,
 }: StoryPhotoSectionProps) {
@@ -79,8 +81,8 @@ export function StoryPhotoSection({
   if (!split) {
     return (
       <section className="flex w-full flex-col bg-cream px-4 py-10 md:px-12 md:py-16" style={{ gap: hasText ? 48 : 0 }}>
-        {photo}
-        {textCol}
+        {textFirst ? textCol : photo}
+        {textFirst ? photo : textCol}
       </section>
     );
   }
